@@ -1,6 +1,6 @@
 # Cours Manager 2000
 
-Dans le cadre du cours [3251.3 Développement web I], nous allons créer une application web qui utilisera le framework Laravel.
+Dans le cadre du cours <b>3251.3 Développement web I</b>, nous allons créer une application web qui utilisera le framework <b>Laravel</b>.<br>
 Son principe est simple, donner un outil aux étudiants pour qu'ils puissent visualiser leur grille horaire et gérer leurs notes.
 
 Membres du projet :
