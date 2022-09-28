@@ -8,4 +8,4 @@ Membres du projet :
  - Vincent Jeannin
  - Théo Vuilliomenet
 
-Accès au Wiki : https://github.com/HE-Arc/cours-manager-2000/wiki
+Lien sur notre wiki : https://github.com/HE-Arc/cours-manager-2000/wiki
