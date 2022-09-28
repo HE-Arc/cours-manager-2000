@@ -1,0 +1,70 @@
+https://dbdiagram.io/d/6334541f7b3d2034ffda732a
+___________________________________________________________
+
+Table users {
+  id int [pk, increment]
+  admin bool
+  firstname varchar
+  lastname varchar
+  class int [ref: > classes.id]
+}
+
+Table classes {
+  id int [pk, increment]
+  name varchar
+}
+
+Table courses {
+  id int
+  module_id int [ref: > modules.id]
+  name varchar
+  ponderation int
+  minimal_avg float
+  Indexes {
+    (module_id, id) [pk]
+  }
+}
+
+Table modules {
+  id int [pk]
+  name varchar
+  minimal_avg float
+  formule varchar
+}
+
+Table lessons {
+  id int [increment]
+  class_id int [ref: > classes.id]
+  day int
+  start_periode int [ref: > periodes.id]
+  nb_periodes int
+  course_id int [ref: > courses.id]
+  prof varchar
+  room varchar
+  Indexes {
+    (id, class_id) [pk]
+  }
+}
+
+Table timetables {
+  user_id int [ref: <> users.id]
+  lesson_id int [ref: <> lessons.id]
+  Indexes {
+    (user_id, lesson_id) [pk]
+  }
+}
+
+Table periodes {
+  id int
+  location int [ref: > locations.id]
+  start_time time
+  end_time time
+  Indexes {
+    (id, location) [pk]
+  }
+}
+
+Table locations {
+  id int [pk, increment]
+  name varchar
+}
