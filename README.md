@@ -1,21 +1,11 @@
 # Cours Manager 2000
 
-## Membres
- - Titus Abele
- - Vincent Jeannin
- - Théo Vuilliomenet
+Dans le cadre du cours [3251.3 Développement web I], nous allons créer une application web qui utilisera le framework Laravel.
+Son principe est simple, donner un outil aux étudiants pour qu'ils puissent visualiser leur grille horaire et gérer leurs notes.
 
-## Principe
-Notre application web permettra aux étudiants de s'abonner aux cours préalablement créés par un compte secrétaire, d'y rentrer ses notes afin de consulter sa moyenne facilement et de visualiser son horaire.
+Membres du projet :
+ - Aubert Nicolas
+ - Michel Jeanne
+ - Saric Jasmin
 
-## Objectifs principaux
- - CRUD pour la secrétaire sur les modules
- - Possibilité pour un étudiant de s'abonner à un cours
- - Génération automatique de la grille horaire (basée sur les cours choisis)
- - CRUD pour les étudiants sur les notes
- - Calcul des moyennes des différentes matières
-
-## Objectifs secondaires
- - Fonction exporter la grille horaire pour Outlook
- - Génération d'un bulletin pour les notes
- - Calcul des conditions de réussite des modules 
+Accès au Wiki : https://github.com/HE-Arc/cours-manager-2000/wiki
