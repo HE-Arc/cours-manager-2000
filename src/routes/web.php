@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,8 @@ Route::resource('modules', ModuleController::class);
 // Route::get('/', [ModuleController::class, 'modules'])->name('module.create');
 // Route::get('/', [ModuleController::class, 'modules'])->name('module.edit');
 // Route::get('/', [ModuleController::class, 'modules'])->name('module.show');
+Route::get('login', [UserController::class, 'login'])->name('user.login');
+Route::post('login', [UserController::class, 'authentificate'])->name('user.authentificate');
+
+Route::get('register', [UserController::class, 'register'])->name('user.register');
+Route::post('register', [UserController::class, 'create'])->name('user.create');
