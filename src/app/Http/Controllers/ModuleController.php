@@ -37,7 +37,19 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "name" => "required|min:5|max:25",
+            "minimal_avg" => "required|gt:0|lt:6",
+            "formula" => "required|min:5|max:25",
+        ]);
+        $module = new Module();
+        $module->name = $request->name;
+        $module->minimal_avg = $request->minimal_avg;
+        $module->formula = $request->formula;
+        $module->save();
+        return redirect()
+            ->route("modules.index")
+            ->with("success", "module created successfully");
     }
 
     /**
@@ -73,7 +85,10 @@ class ModuleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Module::findOrFail($id)->update($request->all());
+        return redirect()
+            ->route("modules.index")
+            ->with("success", "Module updated successfully");
     }
 
     /**
@@ -84,6 +99,9 @@ class ModuleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Module::findOrFail($id)->delete();
+        return redirect()
+            ->route("modules.index")
+            ->with("success", "Module deleted successfully");
     }
 }
