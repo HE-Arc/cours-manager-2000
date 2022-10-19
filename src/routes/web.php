@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ModuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,12 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+/* Modules */
+
+Route::resource('modules', ModuleController::class);
+
+// Route::get('/', [ModuleController::class, 'index'])->name('module.index');
+// Route::get('/', [ModuleController::class, 'modules'])->name('module.create');
+// Route::get('/', [ModuleController::class, 'modules'])->name('module.edit');
+// Route::get('/', [ModuleController::class, 'modules'])->name('module.show');

@@ -34,6 +34,5 @@
         @endforeach
     </tbody>
 </table>
-{!! $modules->links() !!}
 
 @endsection

@@ -26,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="TODO">Modules</a>
+                        <a class="nav-link" href="{{route('modules.index')}}">Modules</a>
                     </li>
                 </ul>
             </div>
