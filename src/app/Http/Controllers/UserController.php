@@ -2,44 +2,82 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
+    /**
+     * Show the form for authentificate a user.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function login()
     {
         return view('user.login');
     }
 
-    public function register()
+    /**
+     * Show the form for creating a new user.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         return view('user.register');
     }
 
-    public function authentificate(Request $request)
+    /**
+     * This code is from laravel start kit breeze
+     *
+     * Handle an incoming authentication request.
+     *
+     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function authentificate(LoginRequest $request)
     {
-        $request->validate([
-            'firstname' => 'required',
-            'password' => 'required'
-        ]);
+        $request->authenticate();
 
-       // Action
+        $request->session()->regenerate();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with("success", "successfully logged in !");
     }
 
-    public function create(Request $request)
+    /**
+     * This code is from laravel start kit breeze
+     *
+     * Handle an incoming registration request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function store(Request $request)
     {
         $request->validate([
-            'firstname' => 'required',
-            'name' => 'required',
-            'password1' => 'required',
-            'password2' => 'required'
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-       // Action
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
-        return redirect()->route('home');
+        event(new Registered($user));
+
+        Auth::login($user);
+
+        return redirect()->route('home')->with("success", "new user created !");
     }
 }
