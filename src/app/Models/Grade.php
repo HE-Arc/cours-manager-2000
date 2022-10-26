@@ -10,7 +10,8 @@ class Grade extends Model
     use HasFactory;
 
     protected $fillable = [
-        'grade',
+        'value',
+        'coeff'
     ];
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GradeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ModuleController;
@@ -22,6 +23,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 /* Modules */
 
 Route::resource('modules', ModuleController::class);
+
+/* Grades */
+Route::resource('grades', GradeController::class);
 
 // Route::get('/', [ModuleController::class, 'index'])->name('module.index');
 // Route::get('/', [ModuleController::class, 'modules'])->name('module.create');
