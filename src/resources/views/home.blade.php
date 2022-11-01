@@ -1,6 +1,6 @@
 @extends("layout.app")
 @section("content")
 
-COUCOU !!!
+<h1>Cours Manager 2000</h1>
 
 @endsection
