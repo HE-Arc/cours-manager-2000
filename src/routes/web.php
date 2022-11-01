@@ -18,22 +18,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [UserController::class, 'login'])->name('user.login');
 
 /* Modules */
-
 Route::resource('modules', ModuleController::class);
 
 /* Grades */
 Route::resource('grades', GradeController::class);
 
-// Route::get('/', [ModuleController::class, 'index'])->name('module.index');
-// Route::get('/', [ModuleController::class, 'modules'])->name('module.create');
-// Route::get('/', [ModuleController::class, 'modules'])->name('module.edit');
-// Route::get('/', [ModuleController::class, 'modules'])->name('module.show');
-
 /* User */
-
 Route::get('login', [UserController::class, 'login'])->name('user.login');
 Route::post('login', [UserController::class, 'authentificate'])->name('user.authentificate');
 

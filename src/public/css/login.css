@@ -1,0 +1,114 @@
+body {
+    background: linear-gradient(-45deg, #505581, #f4d25e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease-in-out infinite;
+}
+
+.cm-login {
+    position: relative;
+    left: calc(50% - 200px);
+    top: 75px;
+
+    width: 400px;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 50px;
+    animation: login-movement 2s ease infinite;
+}
+
+.cm-login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cm-login-form h1 {
+    color: #2e2f5b;
+}
+
+.cm-login-form a {
+    color: #2e2f5b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    transition: 0.3s;
+}
+
+.cm-login .cm-login-form a:hover {
+    letter-spacing: 0.1em;
+}
+
+.cm-input-box {
+    position: relative;
+    width: 250px;
+}
+
+.cm-input-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(46, 47, 91, 0.25);
+    background: transparent;
+    border-radius: 5px;
+    outline: none;
+    color: #2e2f5b;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.cm-input-box span {
+    position: absolute;
+    left: 10px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(46, 47, 91, 0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.cm-input-box input:focus,
+.cm-input-box input:valid {
+    border: 1px solid #2e2f5b;
+}
+
+.cm-input-box input:valid ~ span,
+.cm-input-box input:focus ~ span {
+    color: #f4d25e;
+    background: #2e2f5b;
+    border-radius: 2px;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 20px;
+    letter-spacing: 0.2em;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes login-movement {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
