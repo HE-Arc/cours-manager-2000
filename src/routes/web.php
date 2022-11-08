@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GradeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -23,6 +24,9 @@ Route::get('/', [UserController::class, 'login'])->name('user.login');
 
 /* Modules */
 Route::resource('modules', ModuleController::class);
+
+/* Modules */
+Route::resource('courses', CourseController::class);
 
 /* Grades */
 Route::resource('grades', GradeController::class);

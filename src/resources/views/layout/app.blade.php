@@ -32,6 +32,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('modules.index') }}">Modules</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('courses.index') }}">Cours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('grades.index') }}">Notes</a>
+                    </li>
                 </ul>
             </div>
         </div>
