@@ -29,14 +29,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('modules.index') }}">Modules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('courses.index') }}">Cours</a>
-                    </li>
+                        <a class="nav-link" href="#">Horaire</a>
+                    </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('grades.index') }}">Notes</a>
+                        <a class="nav-link" href="#">Bulletin</a>
                     </li>
                 </ul>
             </div>

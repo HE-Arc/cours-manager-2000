@@ -25,9 +25,9 @@ class Course extends Model
         return $this->belongsTo(Module::class);
     }
 
-    public function notes()
+    public function grades()
     {
-        return $this->hasMany(Note::class);
+        return $this->hasMany(Grade::class);
     }
 
     public function lessons()

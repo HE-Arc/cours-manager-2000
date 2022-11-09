@@ -38,4 +38,15 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 col-lg-6 offset-0 offset-lg-3">
+            <ul>
+            @foreach ($course->grades as $grade)
+                <li>
+                    <a href="{{ route("grades.show", $grade->id) }}">{{ $grade->value }}</a>
+                </li>
+            @endforeach
+            </ul>
+        </div>
+    </div>
 @endsection

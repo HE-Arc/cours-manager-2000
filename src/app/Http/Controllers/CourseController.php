@@ -50,6 +50,7 @@ class CourseController extends Controller
         $course->name = $request->name;
         $course->weighting = $request->weighting;
         $course->minimal_avg = $request->minimal_avg;
+        $course->module_id = $request->module_id;
         $course->save();
 
         return redirect()
