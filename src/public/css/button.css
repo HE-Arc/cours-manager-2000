@@ -1,0 +1,136 @@
+:root {
+    --btn-default: #2e2f5b;
+    --btn-primary: #f4d35e;
+    --btn-info: #505581;
+    --btn-success: #188e00;
+    --btn-warning: #fca513;
+    --btn-danger: #b30d00;
+}
+
+/* Button Base Specification */
+
+.cm-button {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    border: none;
+    padding: 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+    font-size: 16px;
+    transition: 0.5s;
+}
+
+.cm-button:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cm-button:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+}
+
+.cm-button span {
+    display: block;
+    position: absolute;
+    background: var(--btn-default);
+}
+
+/* Border Specification */
+
+.cm-button .left {
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+}
+
+.cm-button .bottom {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+
+.cm-button .right {
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+.cm-button .top {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+/* Hover Animation */
+
+.cm-button:hover .left {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+}
+
+.cm-button:hover .bottom {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.cm-button:hover .right {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+.cm-button:hover .top {
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: transform 0.5s;
+    transition-delay: 0.5s;
+}
+
+/* Button Declinaison */
+
+.cm-primary span {
+    background: var(--btn-primary);
+}
+
+.cm-info span {
+    background: var(--btn-info);
+}
+
+.cm-success span {
+    background: var(--btn-success);
+}
+
+.cm-warning span {
+    background: var(--btn-warning);
+}
+
+.cm-danger span {
+    background: var(--btn-danger);
+}

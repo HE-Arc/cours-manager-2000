@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/global.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/button.css') }}">
     @stack('customcss')
 </head>
 

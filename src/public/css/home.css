@@ -1,0 +1,82 @@
+/* Global */
+
+#home-view {
+    display: flex;
+    justify-content: center;
+}
+
+/* Card */
+
+.cm-card {
+    position: relative;
+    background-color: var(--light);
+    color: var(--primary);
+    width: 500px;
+    height: 420px;
+    margin: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cm-card:hover {
+    text-decoration: none;
+    border: 1px solid var(--secondary);
+    color: var(--primary);
+}
+
+/* Card Gradient */
+
+.cm-card .cm-gradient {
+    position: absolute;
+    left: 1px;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    background: linear-gradient(
+        0deg,
+        rgba(46, 47, 91, 0.5) 0%,
+        transparent 100%
+            /* rgba(46, 47, 91, 1) 0%,
+        rgba(80, 85, 129, 1) 100% */
+    );
+    transform: translateY(420px);
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+}
+
+.cm-card:hover .cm-gradient {
+    transform: translateY(0);
+}
+
+/* Card Title */
+
+.cm-card .cm-title {
+    position: relative;
+    height: 420px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+.cm-card:hover .cm-title {
+    height: 140px;
+    letter-spacing: 0.2em;
+}
+
+/* Card Content */
+
+.cm-card .cm-content {
+    display: flex;
+    position: relative;
+    height: 280px;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cm-card .cm-content > * {
+    max-height: 100%;
+    max-width: 100%;
+}
