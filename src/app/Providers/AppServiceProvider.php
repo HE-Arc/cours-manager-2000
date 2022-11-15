@@ -24,8 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (env('APP_ENV') === 'production') {
-            URL::forceScheme('https')['https://coursmanager2000.k8s.ing.he-arc.ch'];
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
         }
     }
 }

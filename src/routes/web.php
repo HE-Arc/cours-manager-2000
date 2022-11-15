@@ -4,6 +4,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GradeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -30,6 +31,9 @@ Route::resource('courses', CourseController::class);
 
 /* Grades */
 Route::resource('grades', GradeController::class);
+
+/* Lessons */
+Route::resource('lessons', LessonController::class);
 
 /* User */
 Route::get('login', [UserController::class, 'login'])->name('user.login');
