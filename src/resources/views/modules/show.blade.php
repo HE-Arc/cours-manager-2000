@@ -1,6 +1,15 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/modules/show.css') }}">
+@endpush
+
 @section('content')
+
+    <div id="module-show-view" class="container mt-5">
+        Coucou
+    </div>
+
     <div class="row mb-3">
         <div class="col-12">
             <a class="btn btn-primary" href="{{ route('modules.index') }}"><i class="bi bi-arrow-return-left"></i></a>

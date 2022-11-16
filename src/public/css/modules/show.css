@@ -1,0 +1,6 @@
+/* Global */
+
+#module-show-view {
+    display: grid;
+    background-color: red;
+}
