@@ -14,7 +14,7 @@
                 <h1>Modules</h1>
             </div>
             <div class="cm-content">
-                <img src="https://pngimg.com/uploads/hedgehog/hedgehog_PNG18.png">
+                <img alt="[hedgehog]" src="{{ asset('img/hedgehog.png') }}">
             </div>
         </a>
         <a href="#" class="cm-card">
@@ -23,7 +23,7 @@
                 <h1>Horaire</h1>
             </div>
             <div class="cm-content">
-                <img src="https://www.pngkey.com/png/full/435-4355650_sea-otter.png">
+                <img alt="[sea otter]" src="{{ asset('img/sea-otter.png') }}">
             </div>
         </a>
     </div>

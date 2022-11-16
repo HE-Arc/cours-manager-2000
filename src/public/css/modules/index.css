@@ -1,0 +1,65 @@
+/* Global */
+
+#module-index-view {
+    display: flex;
+    justify-content: center;
+}
+
+/* Card */
+
+.cm-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    height: 200px;
+
+    margin: 20px;
+    padding: 10px;
+
+    color: var(--primary);
+    background-color: var(--light);
+
+    border-radius: 5px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s transform ease;
+}
+
+.cm-card.cm-unsuccess {
+    border: 2px solid var(--danger);
+}
+
+.cm-card:hover {
+    text-decoration: none;
+    color: var(--primary);
+    border: 1px solid var(--secondary);
+    transform: translateY(-5px);
+}
+
+/* Card Title */
+
+.cm-card .cm-card-title {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* Card Content */
+
+.cm-card .cm-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    padding: 10px;
+
+    font-size: 1.7em;
+}
+
+.cm-card .cm-card-content i {
+    margin: 10px;
+}

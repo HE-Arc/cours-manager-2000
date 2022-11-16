@@ -36,8 +36,6 @@
         0deg,
         rgba(46, 47, 91, 0.5) 0%,
         transparent 100%
-            /* rgba(46, 47, 91, 1) 0%,
-        rgba(80, 85, 129, 1) 100% */
     );
     transform: translateY(420px);
     transition: 0.3s ease-in-out;

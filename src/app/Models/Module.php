@@ -32,7 +32,8 @@ class Module extends Model
         $sum = 0;
         $total = 0;
 
-        foreach ($this->courses as $course) {
+        foreach ($this->courses as $course)
+        {
             $mean = $course->mean();
 
             if ($mean === 0) continue;
