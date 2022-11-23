@@ -40,7 +40,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|min:5|max:25",
+            "name" => "required|min:5|max:50",
             "weighting" => "required|gt:0|lt:20",
             "minimal_avg" => "required|gt:0|lt:6",
             "module_id" => "nullable|integer|exists:modules,id"

@@ -20,7 +20,7 @@
             @foreach ($courses as $course)
                 <tr>
                     <td>{{ $course->name }}</td>
-                    <td>{{ $course->module_id ?? 'Module inconnu...' }}</td>
+                    <td>{{ $course->module->name ?? 'Module inconnu...' }}</td>
                     <td>{{ $course->weighting }}</td>
                     <td>{{ $course->minimal_avg }}</td>
                     <td>

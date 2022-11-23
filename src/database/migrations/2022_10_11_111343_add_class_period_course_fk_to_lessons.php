@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('lessons', function (Blueprint $table) {
             $table->foreignId('class_id')
                 ->nullable()
-                ->constrained('sectionclasses')
+                ->constrained('section_classes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

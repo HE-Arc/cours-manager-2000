@@ -38,14 +38,12 @@ class ModuleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "name" => "required|min:5|max:25",
+            "name" => "required|min:5|max:50",
             "minimal_avg" => "required|gt:0|lt:6",
-            "formula" => "required|min:5|max:25",
         ]);
         $module = new Module();
         $module->name = $request->name;
         $module->minimal_avg = $request->minimal_avg;
-        $module->formula = $request->formula;
         $module->save();
         return redirect()
             ->route("modules.index")

@@ -45,11 +45,11 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "day" => "required|min:5|max:25",
+            "day" => "required|integer|lt:8",
             "nb_periods" => "required|integer|gt:0|lt:10",
             "professor" => "required|min:3|max:50",
             "classroom" => "required|min:3|max:10",
-            "class_id" => "required|integer|exists:classes,id",
+            "class_id" => "required|integer|exists:section_classes,id",
             "period_id" => "required|integer|exists:periods,id",
             "course_id" => "required|integer|exists:courses,id"
         ]);

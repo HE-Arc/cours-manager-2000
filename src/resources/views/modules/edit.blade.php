@@ -17,22 +17,17 @@
             </div>
             <div class="card-body">
                 <div class="form-row">
+
                     <div class="form-group col-12">
                         <label for="inputName">Nom</label>
                         <input type="text" name="name" value="{{ $module->name }}" class="form-control"
                             id="inputName">
                     </div>
-                    <div class="row mt-3">
-                        <div class="form-group col-6">
-                            <label for="inputMinAvg">Moyenne minimale</label>
-                            <input type="text" name="minimal_avg" value="{{ $module->minimal_avg }}" class="form-control"
-                                id="inputMinAvg">
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="inputFormule">Formule</label>
-                            <input type="text" name="formula" value="{{ $module->formula }}" class="form-control"
-                                id="inputFormule">
-                        </div>
+
+                    <div class="form-group col-12">
+                        <label for="inputMinAvg">Moyenne minimale</label>
+                        <input type="text" name="minimal_avg" value="{{ $module->minimal_avg }}" class="form-control"
+                            id="inputMinAvg">
                     </div>
 
                     <button type="submit" class="btn btn-primary mt-3">Modifier</button>

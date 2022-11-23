@@ -19,23 +19,19 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
+
                             <div class="form-group col-12">
                                 <label for="inputName">Nom</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control"
                                     id="inputName">
                             </div>
-                            <div class="row mt-3">
-                                <div class="form-group col-6">
-                                    <label for="inputMinAvg">Moyenne minimale</label>
-                                    <input type="text" name="minimal_avg" value="{{ old('minimal_avg') }}"
-                                        class="form-control" id="inputMinAvg">
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="inputFormula">Formule</label>
-                                    <input type="text" name="formula" value="{{ old('formula') }}" class="form-control"
-                                        id="inputFormula">
-                                </div>
+
+                            <div class="form-group col-12">
+                                <label for="inputMinAvg">Moyenne minimale</label>
+                                <input type="text" name="minimal_avg" value="{{ old('minimal_avg') }}"
+                                    class="form-control" id="inputMinAvg">
                             </div>
+
                             @if ($errors->any())
                                 <div class="alert alert-danger mt-3 col-12">
                                     <strong>Whoops!</strong> Il y a un problème avec vos entrées.<br><br>

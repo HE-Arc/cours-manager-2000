@@ -9,6 +9,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">Cours</th>
                 <th scope="col">Valeur</th>
                 <th scope="col">Coefficient</th>
                 <th scope="col">&nbsp;</th>
@@ -17,6 +18,7 @@
         <tbody>
             @foreach ($grades as $grade)
                 <tr>
+                    <td>{{ $grade->course->name ?? '-' }}</td>
                     <td>{{ $grade->value }}</td>
                     <td>{{ $grade->coeff }}</td>
                     <td>

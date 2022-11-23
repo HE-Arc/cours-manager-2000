@@ -19,11 +19,13 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
+
                             <div class="form-group col-12">
                                 <label for="inputValue">Valeur</label>
                                 <input type="text" name="value" value="{{ old('value') }}" class="form-control"
                                     id="inputValue">
                             </div>
+
                             <div class="row mt-3">
                                 <div class="form-group col-6">
                                     <label for="inputCoeff">Coefficient</label>
@@ -31,6 +33,7 @@
                                         id="inputCoeff">
                                 </div>
                             </div>
+
                             @if ($errors->any())
                                 <div class="alert alert-danger mt-3 col-12">
                                     <strong>Whoops!</strong> Il y a un problème avec vos entrées.<br><br>

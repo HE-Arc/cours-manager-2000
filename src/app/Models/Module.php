@@ -12,7 +12,6 @@ class Module extends Model
     protected $fillable = [
         'name',
         'minimal_avg',
-        'formula',
     ];
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\

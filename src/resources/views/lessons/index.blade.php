@@ -22,17 +22,15 @@
             @foreach ($lessons as $lesson)
                 <tr>
                     <td>{{ $lesson->day }}</td>
-                    <td>{{ $lesson->period_id ?? 'période inconnue ...' }}</td>
+                    <td>{{ $lesson->start_period->id ?? '-' }}</td>
                     <td>{{ $lesson->nb_periods }}</td>
-                    <td>{{ $lesson->course_id ?? 'cours inconnue...' }}</td>
+                    <td>{{ $lesson->course->name ?? '-' }}</td>
                     <td>{{ $lesson->professor }}</td>
                     <td>{{ $lesson->classroom }}</td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('lessons.show', $course->id) }}"><i
-                                class="bi bi-eye-fill"></i></a>
-                        <a class="btn btn-primary" href="{{ route('lessons.edit', $course->id) }}"><i
+                        <a class="btn btn-primary" href="{{ route('lessons.edit', $lesson->id) }}"><i
                                 class="bi bi-pencil-fill"></i></a>
-                        <form action="{{ route('lessons.destroy', $course->id) }}" method="POST">
+                        <form action="{{ route('lessons.destroy', $lesson->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
