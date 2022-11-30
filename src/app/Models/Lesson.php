@@ -20,12 +20,30 @@ class Lesson extends Model
     |*                           PUBLIC                            *|
     \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-    public function class()
+    public function start_period()
+    {
+        $intDate = strtotime($this->period->start_time);
+        return date('H:i', $intDate);
+    }
+
+    public function string_day()
+    {
+        return Day::from($this->day)->stringDay();
+    }
+
+    /* * * * * * * * * * * * * * * *\
+    |*           GETTERS           *|
+    \* * * * * * * * * * * * * * * */
+
+    /**
+     * Be careful the method name must be the same as the class name.
+     */
+    public function sectionClass()
     {
         return $this->belongsTo(SectionClass::class);
     }
 
-    public function start_period()
+    public function period()
     {
         return $this->belongsTo(Period::class);
     }

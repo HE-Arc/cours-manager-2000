@@ -21,8 +21,8 @@
         <tbody>
             @foreach ($lessons as $lesson)
                 <tr>
-                    <td>{{ $lesson->day }}</td>
-                    <td>{{ $lesson->start_period->id ?? '-' }}</td>
+                    <td>{{ $lesson->string_day() ?? '-' }}</td>
+                    <td>{{ $lesson->start_period() ?? '-' }}</td>
                     <td>{{ $lesson->nb_periods }}</td>
                     <td>{{ $lesson->course->name ?? '-' }}</td>
                     <td>{{ $lesson->professor }}</td>

@@ -33,8 +33,11 @@
 
                                 <div class="form-group col-4">
                                     <label for="inputDay">Jour</label>
-                                    <input type="text" name="day" value="{{ old('day') }}" class="form-control"
-                                        id="inputDay">
+                                    <select name="day" id="inputDay">
+                                        @foreach ($days as $day)
+                                            <option value="{{ $day->value }}">{{ $day->stringDay() }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <div class="form-group col-4">

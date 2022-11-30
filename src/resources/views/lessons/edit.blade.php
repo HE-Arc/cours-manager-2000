@@ -24,22 +24,30 @@
                             <label for="inputCourse">Cours</label>
                             <select name="course_id" id="inputCourse">
                                 @foreach ($courses as $course)
-                                    <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                    <option value="{{ $course->id }}"
+                                        {{ $lesson->course_id == $course->id ? 'selected' : '' }}>{{ $course->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group col-4">
                             <label for="inputDay">Jour</label>
-                            <input type="text" name="day" value="{{ $lesson->day }}" class="form-control"
-                                id="inputDay">
+                            <select name="day" id="inputDay">
+                                @foreach ($days as $day)
+                                    <option value="{{ $day->value }}" {{ $lesson->day == $day->value ? 'selected' : '' }}>
+                                        {{ $day->stringDay() }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group col-4">
                             <label for="inputClass">Classe</label>
                             <select name="class_id" id="inputClass">
                                 @foreach ($classes as $class)
-                                    <option value="{{ $class->id }}">{{ $class->name }}</option>
+                                    <option value="{{ $class->id }}"
+                                        {{ $lesson->class_id == $class->id ? 'selected' : '' }}>{{ $class->name }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -52,14 +60,16 @@
                             <label for="inputStartPeriod">Période de début</label>
                             <select name="period_id" id="inputStartPeriod">
                                 @foreach ($periods as $period)
-                                    <option value="{{ $period->id }}">{{ $period->start_time }}</option>
+                                    <option value="{{ $period->id }}"
+                                        {{ $lesson->period_id == $period->id ? 'selected' : '' }}>
+                                        {{ $period->start_time }}</option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group col-6">
                             <label for="inputNbPeriods">Nombre de périodes</label>
-                            <input type="text" name="nb_periods" value="{{ $lessons->nb_periods }}" class="form-control"
+                            <input type="text" name="nb_periods" value="{{ $lesson->nb_periods }}" class="form-control"
                                 id="inputNbPeriods">
                         </div>
 

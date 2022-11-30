@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Period;
 use App\Models\SectionClass;
+use App\Models\Day;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -32,8 +33,9 @@ class LessonController extends Controller
         $classes = SectionClass::all();
         $periods = Period::all();
         $courses = Course::all();
+        $days = Day::buisnessDays();
 
-        return view('lessons.create', ['classes' => $classes, 'periods' => $periods, 'courses' => $courses]);
+        return view('lessons.create', ['classes' => $classes, 'periods' => $periods, 'courses' => $courses, 'days' => $days]);
     }
 
     /**
@@ -90,7 +92,12 @@ class LessonController extends Controller
     public function edit($id)
     {
         $lesson = Lesson::findOrFail($id);
-        return view('lessons.edit', ['lesson' => $lesson]);
+        $classes = SectionClass::all();
+        $periods = Period::all();
+        $courses = Course::all();
+        $days = Day::buisnessDays();
+
+        return view('lessons.edit', ['lesson' => $lesson, 'classes' => $classes, 'periods' => $periods, 'courses' => $courses, 'days' => $days]);
     }
 
     /**
@@ -102,7 +109,16 @@ class LessonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Lesson::findOrFail($id)->update($request->all());
+        $lesson = Lesson::findOrFail($id);
+
+        $lesson->day = $request->day;
+        $lesson->nb_periods = $request->nb_periods;
+        $lesson->professor = $request->professor;
+        $lesson->classroom = $request->classroom;
+        $lesson->class_id = $request->class_id;
+        $lesson->period_id = $request->period_id;
+        $lesson->course_id = $request->course_id;
+        $lesson->save();
 
         return redirect()
             ->route("lessons.index")
