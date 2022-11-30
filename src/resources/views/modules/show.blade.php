@@ -5,50 +5,50 @@
 @endpush
 
 @section('content')
-
-    <div id="module-show-view" class="container mt-5">
-        Coucou
-    </div>
-
-    <div class="row mb-3">
-        <div class="col-12">
-            <a class="btn btn-primary" href="{{ route('modules.index') }}"><i class="bi bi-arrow-return-left"></i></a>
+    <div id="module-show-view" class="container">
+        <div class="cm-card-infos">
+            <div class="cm-card-title h3">
+                Titre
+            </div>
+            <div class="cm-card-content">
+                Content
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-            <div class="card">
-                <div class="card-header">
-                    Afficher un module
-                </div>
-                <div class="card-body">
-                    <div class="form-row">
-
-                        <div class="form-group col-12">
-                            <strong>Nom :</strong>
-                            {{ $module->name }}
+        <div class="cm-courses-container">
+            @foreach ($module->courses as $course)
+                <a href="{{ route('courses.show', $course->id) }}"
+                    class="cm-card {{ $course->isPassed() ? '' : 'cm-unsuccess' }}">
+                    <div class="cm-card-title h3">
+                        <div class="cm-card-title-truncate">
+                            {{ $course->name }}
                         </div>
-
-                        <div class="form-group col-12">
-                            <strong>Moyenne minimale :</strong>
-                            {{ $module->minimal_avg }}
+                        <span>{{ $module->id }}.{{ $course->id }}</span>
+                        <span class="cm-failure">ÉCHEC</span>
+                    </div>
+                    <div class="cm-card-content">
+                        <div>
+                            <span data-toggle="tooltip" data-placement="top" title="Moyenne">
+                                <i class="fa-solid fa-calculator"></i>
+                            </span>
+                            <div>
+                                {{ sprintf('%01.2f', $course->mean()) }}
+                            </div>
+                        </div>
+                        <div>
+                            <span data-toggle="tooltip" data-placement="top" title="Pondération">
+                                <i class="fa-solid fa-scale-unbalanced"></i>
+                            </span>
+                            <div>
+                                {{ $course->weighting }}
+                            </div>
                         </div>
 
                     </div>
-                </div>
-            </div>
+                </a>
+            @endforeach
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-            <ul>
-                @foreach ($module->courses as $course)
-                    <li>
-                        <a href="{{ route('courses.show', $course->id) }}">{{ $course->name }}</a>
-                    </li>
-                @endforeach
-            </ul>
+        <div class="cm-stats-container">
+            Statistics
         </div>
     </div>
 @endsection

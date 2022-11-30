@@ -2,5 +2,148 @@
 
 #module-show-view {
     display: grid;
-    background-color: red;
+
+    grid-template-columns: 33% 67%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "infos courses"
+        "infos courses"
+        "stats stats";
+}
+
+/* Infos */
+
+.cm-card-infos {
+    grid-area: infos;
+
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light);
+
+    margin: 5px;
+    padding: 10px;
+
+    border-radius: 5px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+.cm-card-infos .cm-card-title {
+    color: var(--primary);
+}
+
+.cm-card-infos .cm-card-content {
+    text-transform: uppercase;
+}
+
+/* Courses */
+
+.cm-courses-container {
+    grid-area: courses;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    gap: 5px;
+}
+
+.cm-courses-container .cm-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    background-color: var(--light);
+
+    height: 230px;
+    width: calc(33% - 3px);
+
+    padding: 10px;
+    gap: 10px;
+
+    border-radius: 5px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+
+    transition: 0.3s transform ease;
+}
+
+.cm-card.cm-unsuccess {
+    border: 2px solid var(--danger);
+}
+
+.cm-courses-container .cm-card:hover {
+    text-decoration: none;
+    border: 1px solid var(--secondary);
+    transform: translateY(-5px);
+}
+
+.cm-courses-container .cm-card .cm-failure {
+    display: none;
+}
+
+.cm-courses-container .cm-card.cm-unsuccess .cm-failure {
+    display: block;
+    text-align: right;
+    font-size: 0.4em !important;
+    color: var(--warning) !important;
+    font-weight: 700;
+}
+
+.cm-courses-container .cm-card .cm-card-title {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.cm-courses-container .cm-card .cm-card-title .cm-card-title-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cm-courses-container .cm-card .cm-card-title span {
+    color: var(--secondary);
+    font-size: 0.5em;
+}
+
+.cm-courses-container .cm-card .cm-card-content {
+    display: flex;
+
+    color: var(--secondary);
+
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cm-courses-container .cm-card .cm-card-content div {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: center;
+    font-style: italic;
+}
+
+.cm-courses-container .cm-card .cm-card-content div span {
+    font-size: 3.5em;
+}
+
+.cm-courses-container .cm-card .cm-card-content div div {
+    font-size: 1.5em;
+}
+
+/* Statistics */
+
+.cm-stats-container {
+    grid-area: stats;
+    background-color: green;
+
+    margin: 5px;
+    padding: 10px;
 }

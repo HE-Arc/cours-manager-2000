@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="cm-card-content">
-                    <i class="fa-solid fa-chart-line"></i>
+                    <i class="fa-solid fa-calculator"></i>
                     {{ sprintf('%01.2f', $module->mean()) }}
                 </div>
             </a>
