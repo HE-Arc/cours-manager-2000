@@ -16,9 +16,9 @@ class Course extends Model
         'minimal_avg',
     ];
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
-    |*                           PUBLIC                            *|
-    \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * *\
+    |*           GETTERS           *|
+    \* * * * * * * * * * * * * * * */
 
     public function module()
     {
@@ -33,5 +33,31 @@ class Course extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
+    |*                           PUBLIC                            *|
+    \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    public function mean()
+    {
+        $sum = 0;
+        $total = 0;
+
+        if (count($this->grades) === 0) return 0;
+
+        foreach ($this->grades as $grade) {
+            $total += $grade->coeff;
+            $sum += $grade->coeff * $grade->value;
+        }
+
+        return round($sum / $total, 2);
+    }
+
+    public function isPassed()
+    {
+        $mean = $this->mean();
+
+        return $mean >= $this->minimal_avg || $mean === 0;
     }
 }

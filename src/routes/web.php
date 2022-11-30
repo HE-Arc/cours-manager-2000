@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BulletinController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\GradeController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,9 @@ Route::resource('grades', GradeController::class);
 
 /* Lessons */
 Route::resource('lessons', LessonController::class);
+
+/* Bulletin */
+Route::get('bulletin', [BulletinController::class, 'index'])->name('bulletin.index');
 
 /* User */
 Route::get('login', [UserController::class, 'login'])->name('user.login');

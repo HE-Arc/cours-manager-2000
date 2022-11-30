@@ -36,7 +36,7 @@
                         <a class="nav-link" href="#">Horaire</a>
                     </li> --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bulletin</a>
+                        <a class="nav-link" href={{ route('bulletin.index') }}>Bulletin</a>
                     </li>
                 </ul>
             </div>
