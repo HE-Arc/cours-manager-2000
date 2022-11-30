@@ -1,0 +1,94 @@
+/* Global */
+
+#course-show-view {
+    display: grid;
+
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "infos means"
+        "grades grades"
+        "stats stats";
+}
+
+/* Infos */
+
+.cm-card-infos {
+    grid-area: infos;
+
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light);
+
+    margin: 5px;
+    padding: 10px;
+
+    border-radius: 5px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+.cm-card-infos .cm-card-title {
+    color: var(--primary);
+}
+
+.cm-card-infos .cm-card-content {
+    text-transform: uppercase;
+}
+
+/* Means */
+
+.cm-means-container {
+    grid-area: means;
+
+    display: flex;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    gap: 5px;
+}
+
+.cm-means-container .cm-mean {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    background-color: var(--light);
+
+    height: 200px;
+    width: calc(50% - 5px);
+
+    padding: 10px;
+    gap: 10px;
+
+    border-radius: 5px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+.cm-mean.cm-unsuccess {
+    border: 2px solid var(--danger);
+}
+
+/* Grades */
+
+.cm-grades-container {
+    grid-area: grades;
+
+    margin: 5px;
+    padding: 10px;
+
+    background-color: var(--light);
+
+    border-radius: 5px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+/* Statistics */
+
+.cm-stats-container {
+    grid-area: stats;
+    background-color: green;
+
+    margin: 5px;
+    padding: 10px;
+}

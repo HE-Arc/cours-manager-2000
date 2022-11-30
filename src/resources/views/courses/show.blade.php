@@ -1,58 +1,73 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/courses/show.css') }}">
+@endpush
+
 @section('content')
-    <div class="row mb-3">
-        <div class="col-12">
-            <a class="btn btn-primary" href="{{ route('courses.index') }}"><i class="bi bi-arrow-return-left"></i></a>
+    <div id="course-show-view" class="container">
+        <div class="cm-card-infos">
+            <div class="cm-card-title h3">
+                Titre
+            </div>
+            <div class="cm-card-content">
+                Content
+            </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-            <div class="card">
-                <div class="card-header">
-                    Afficher un cours
+        <div class="cm-means-container">
+            <div class="cm-mean justify-content-center {{ $course->isPassed() ? '' : 'cm-unsuccess' }}">
+                <div class="h3 text-center">
+                    Moyenne
                 </div>
-                <div class="card-body">
-                    <div class="form-row">
-                        <div class="form-group col-12">
-                            <strong>Nom :</strong>
-                            {{ $course->name }}
-                        </div>
-                        <div class="form-group col-12">
-                            <strong>Module :</strong>
-                            {{ $course->module->name ?? 'Module inconnu...' }}
-                        </div>
-                        <div class="row mt-3">
-                            <div class="form-group col-6">
-                                <strong>Pondération :</strong>
-                                {{ $course->weighting }}
-                            </div>
-                            <div class="form-group col-6">
-                                <strong>Note minimale :</strong>
-                                {{ $course->minimal_avg }}
-                            </div>
-                        </div>
-
-                        <div class="form-group col-12">
-                            <a href="{{ route('grades.create') }}" class="btn btn-primary mb-2"><i
-                                    class="bi bi-plus-square-fill"></i>
-                                Ajouter une note</a>
-                        </div>
-                    </div>
+                <div class="text-center h4">
+                    {{ $course->mean() }}
+                </div>
+            </div>
+            <div class="cm-mean justify-content-center {{ $course->isPassed() ? '' : 'cm-unsuccess' }}">
+                <div class="h3 text-center">
+                    Moyenne Arrondie
+                </div>
+                <div class="text-center h4">
+                    {{ round($course->mean(), 1) }}
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-lg-6 offset-0 offset-lg-3">
-            <ul>
-                @foreach ($course->grades as $grade)
-                    <li>
-                        <a href="{{ route('grades.show', $grade->id) }}">{{ $grade->value }}</a>
-                    </li>
-                @endforeach
-            </ul>
+        <div class="cm-grades-container">
+            <table class="table table-dark table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col"></th>
+                        @foreach ($course->grades as $grade)
+                            <th scope="col" class="text-center">{{ $grade->created_at->format('d/m/Y') }}</th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="col">Note</th>
+                        @foreach ($course->grades as $grade)
+                            <td scope="row" class="text-center">{{ $grade->value }}</th>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <th scope="col">Pondération</th>
+                        @foreach ($course->grades as $grade)
+                            <td scope="row" class="text-center">{{ $grade->coeff }}</th>
+                        @endforeach
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="{{ route('grades.create', $course->id) }}" class="cm-button cm-primary">
+                <span class="left"></span>
+                <span class="top"></span>
+                <span class="right"></span>
+                <span class="bottom"></span>
+                Ajouter Note
+            </a>
+        </div>
+        <div class="cm-stats-container">
+            Statistics
         </div>
     </div>
 @endsection

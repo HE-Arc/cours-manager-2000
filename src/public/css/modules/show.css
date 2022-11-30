@@ -84,10 +84,12 @@
 
 .cm-courses-container .cm-card.cm-unsuccess .cm-failure {
     display: block;
-    text-align: right;
+
     font-size: 0.4em !important;
-    color: var(--warning) !important;
     font-weight: 700;
+
+    text-align: right;
+    color: var(--warning) !important;
 }
 
 .cm-courses-container .cm-card .cm-card-title {
