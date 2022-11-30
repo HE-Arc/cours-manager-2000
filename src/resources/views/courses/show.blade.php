@@ -5,10 +5,14 @@
 @endpush
 
 @section('content')
+    <a class="btn btn-outline-light" href="{{ route('modules.show', $course->module_id) }}">
+        <i class="fa-solid fa-angles-left"></i>
+    </a>
+
     <div id="course-show-view" class="container">
         <div class="cm-card-infos">
             <div class="cm-card-title h3">
-                Titre
+                {{ $course->name }}
             </div>
             <div class="cm-card-content">
                 Content
@@ -58,7 +62,7 @@
                 </tbody>
             </table>
 
-            <a href="{{ route('grades.create', $course->id) }}" class="cm-button cm-primary">
+            <a href="{{ route('grades.create', ['id' => $course->id]) }}" class="cm-button cm-primary">
                 <span class="left"></span>
                 <span class="top"></span>
                 <span class="right"></span>

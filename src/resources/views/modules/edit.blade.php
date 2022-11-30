@@ -1,11 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-12">
-            <a class="btn btn-primary" href="{{ route('modules.index') }}"><i class="bi bi-arrow-return-left"></i></a>
-        </div>
-    </div>
+    <a class="btn btn-outline-light" href="{{ route('modules.index') }}"><i class="fa-solid fa-angles-left"></i></a>
 
     <form action="{{ route('modules.update', $module->id) }}" method="POST">
         @csrf

@@ -5,7 +5,10 @@
 @endpush
 
 @section('content')
-    <h1>Modules</h1>
+    <h1>
+        <a class="btn btn-outline-light" href="{{ route('home') }}"><i class="fa-solid fa-angles-left"></i></a>
+        Modules
+    </h1>
 
     <div id="module-index-view" class="container mt-5">
         @foreach ($modules as $module)

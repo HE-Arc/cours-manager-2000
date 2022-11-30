@@ -2,11 +2,7 @@
 
 @section('content')
 
-    <div class="row mb-3">
-        <div class="col-12">
-            <a class="btn btn-primary" href="{{ route('courses.index') }}"><i class="bi bi-arrow-return-left"></i></a>
-        </div>
-    </div>
+    <a class="btn btn-outline-light" href="{{ route('courses.index') }}"><i class="fa-solid fa-angles-left"></i></a>
 
     <form action="{{ route('courses.store') }}" method="POST">
         @csrf

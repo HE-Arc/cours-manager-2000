@@ -6,8 +6,8 @@
     <a href="{{ route('grades.create') }}" class="btn btn-primary float-right mb-2"><i class="bi bi-plus-square-fill"></i>
         Ajouter une Note</a>
 
-    <table class="table">
-        <thead>
+    <table class="table table-dark">
+        <thead class="thead-light">
             <tr>
                 <th scope="col">Cours</th>
                 <th scope="col">Valeur</th>

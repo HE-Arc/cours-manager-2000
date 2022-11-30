@@ -24,9 +24,11 @@ class GradeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('grades.create');
+        $id = $request->id;
+
+        return view('grades.create', ['courseId' => $id]);
     }
 
     /**
@@ -41,12 +43,15 @@ class GradeController extends Controller
             "value" => "required|min:1|max:6",
             "coeff" => "required|gt:0|lt:100"
         ]);
+
         $grade = new Grade();
         $grade->value = $request->value;
         $grade->coeff = $request->coeff;
+        $grade->course_id = $request->course_id;
         $grade->save();
+
         return redirect()
-            ->route("grades.index")
+            ->route("courses.show", $request->course_id)
             ->with("success", "Grade created successfully");
     }
 
@@ -84,6 +89,7 @@ class GradeController extends Controller
     public function update(Request $request, $id)
     {
         Grade::findOrFail($id)->update($request->all());
+
         return redirect()
             ->route("grades.index")
             ->with("success", "Grade updated successfully");
@@ -98,6 +104,7 @@ class GradeController extends Controller
     public function destroy($id)
     {
         Grade::findOrFail($id)->delete();
+
         return redirect()
             ->route("grades.index")
             ->with("success", "Grade deleted successfully");

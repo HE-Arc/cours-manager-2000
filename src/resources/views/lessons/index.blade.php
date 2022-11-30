@@ -1,13 +1,16 @@
 @extends('layout.app')
 
 @section('content')
-    <h1>Cours</h1>
+    <h1>
+        <a class="btn btn-outline-light" href="{{ route('home') }}"><i class="fa-solid fa-angles-left"></i></a>
+        Leçons
+    </h1>
 
     <a href="{{ route('lessons.create') }}" class="btn btn-primary float-right mb-2"><i class="bi bi-plus-square-fill"></i>
         Ajouter une leçon</a>
 
-    <table class="table">
-        <thead>
+    <table class="table table-dark">
+        <thead class="thead-light">
             <tr>
                 <th scope="col">Jour</th>
                 <th scope="col">Période de début</th>

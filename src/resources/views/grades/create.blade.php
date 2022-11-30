@@ -2,11 +2,7 @@
 
 @section('content')
 
-    <div class="row mb-3">
-        <div class="col-12">
-            <a class="btn btn-primary" href="{{ route('grades.index') }}"><i class="bi bi-arrow-return-left"></i></a>
-        </div>
-    </div>
+    <a class="btn btn-outline-light" href="{{ route('courses.show', $courseId) }}"><i class="fa-solid fa-angles-left"></i></a>
 
     <form action="{{ route('grades.store') }}" method="POST">
         @csrf
@@ -19,6 +15,8 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row">
+
+                            <input type="hidden" name="course_id" value="{{ $courseId }}" />
 
                             <div class="form-group col-12">
                                 <label for="inputValue">Valeur</label>

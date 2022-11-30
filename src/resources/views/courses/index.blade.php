@@ -1,7 +1,10 @@
 @extends('layout.app')
 
 @section('content')
-    <h1>Cours</h1>
+    <h1>
+        <a class="btn btn-outline-light" href="{{ route('home') }}"><i class="fa-solid fa-angles-left"></i></a>
+        Cours
+    </h1>
 
     <a href="{{ route('courses.create') }}" class="btn btn-primary float-right mb-2"><i class="bi bi-plus-square-fill"></i>
         Ajouter un cours</a>

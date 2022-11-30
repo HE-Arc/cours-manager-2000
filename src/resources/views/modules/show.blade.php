@@ -5,6 +5,8 @@
 @endpush
 
 @section('content')
+    <a class="btn btn-outline-light" href="{{ route('modules.index') }}"><i class="fa-solid fa-angles-left"></i></a>
+
     <div id="module-show-view" class="container">
         <div class="cm-card-infos">
             <div class="cm-card-title h3">
