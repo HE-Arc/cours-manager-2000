@@ -10,10 +10,13 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
+        'class_id',
         'day',
+        'period_id',
         'nb_periods',
         'professor',
         'classroom',
+        'course_id'
     ];
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
@@ -24,6 +27,17 @@ class Lesson extends Model
     {
         $intDate = strtotime($this->period->start_time);
         return date('H:i', $intDate);
+    }
+
+    public function end_period()
+    {
+        $id = $this->end_period_id();
+        return date('H:i', strtotime(Period::find($id)->end_time));
+    }
+
+    public function end_period_id()
+    {
+        return $this->period_id + $this->nb_periods - 1;
     }
 
     public function string_day()
@@ -38,7 +52,7 @@ class Lesson extends Model
     /**
      * Be careful the method name must be the same as the class name.
      */
-    public function sectionClass()
+    public function class()
     {
         return $this->belongsTo(SectionClass::class);
     }

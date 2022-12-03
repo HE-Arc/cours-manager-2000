@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call(SectionClassSeeder::class);
         $this->call(ISC3ilSeeder::class);
 
+        // FOR DEBUGGING
+        $this->call(ModuleSeeder::class);
+        $this->call(CourseSeeder::class);
+        $this->call(LessonSeeder::class);
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -22,6 +23,9 @@ use App\Http\Controllers\UserController;
 */
 
 //Route::resource('lessons', LessonController::class);
+
+/* Timetable */
+Route::get('timetable', [TimetableController::class, 'index'])->name('timetable');
 
 /* User */
 
