@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
+@endpush
+
 @section('content')
 
     <a class="btn btn-outline-light" href="{{ route('courses.show', $courseId) }}"><i class="fa-solid fa-angles-left"></i></a>
@@ -10,26 +14,30 @@
         <div class="row">
             <div class="col-12 col-lg-6 offset-0 offset-lg-3">
                 <div class="card">
+
                     <div class="card-header">
                         Nouvelle Note
                     </div>
+
                     <div class="card-body">
                         <div class="form-row">
 
                             <input type="hidden" name="course_id" value="{{ $courseId }}" />
 
-                            <div class="form-group col-12">
-                                <label for="inputValue">Valeur</label>
-                                <input type="text" name="value" value="{{ old('value') }}" class="form-control"
-                                    id="inputValue">
-                            </div>
+                            <div class="row">
 
-                            <div class="row mt-3">
+                                <div class="form-group col-6">
+                                    <label for="inputValue">Valeur</label>
+                                    <input type="text" name="value" value="{{ old('value') }}" class="form-control"
+                                        id="inputValue">
+                                </div>
+
                                 <div class="form-group col-6">
                                     <label for="inputCoeff">Coefficient</label>
                                     <input type="text" name="coeff" value="{{ old('coeff') }}" class="form-control"
                                         id="inputCoeff">
                                 </div>
+
                             </div>
 
                             @if ($errors->any())
@@ -43,7 +51,7 @@
                                 </div>
                             @endif
 
-                            <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+                            <button type="submit" class="btn btn-outline-light btn-block mt-3">Ajouter</button>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
+@endpush
+
 @section('content')
 
     <a class="btn btn-outline-light" href="{{ route('modules.index') }}"><i class="fa-solid fa-angles-left"></i></a>
@@ -40,7 +44,7 @@
                                 </div>
                             @endif
 
-                            <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+                            <button type="submit" class="btn btn-outline-light btn-block mt-3">Envoyer</button>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/forms.css') }}">
+@endpush
+
 @section('content')
 
     <a class="btn btn-outline-light" href="{{ route('courses.index') }}"><i class="fa-solid fa-angles-left"></i></a>
@@ -20,15 +24,19 @@
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control"
                                     id="inputName">
                             </div>
-                            <div class="form-group col-12">
-                                <label for="inputModule">Module</label>
-                                <select name="module_id" id="inputModule">
+
+                            <div class="input-group col-12 mt-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputModule">Module</label>
+                                </div>
+                                <select class="custom-select" name="module_id" id="inputModule">
                                     @foreach ($modules as $module)
                                         <option value="{{ $module->id }}">{{ $module->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="row mt-3">
+
+                            <div class="row mt-4">
                                 <div class="form-group col-6">
                                     <label for="inputWeighting">Pondération</label>
                                     <input type="text" name="weighting" value="{{ old('weighting') }}"
@@ -51,7 +59,7 @@
                                 </div>
                             @endif
 
-                            <button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+                            <button type="submit" class="btn btn-outline-light btn-block mt-3">Créer</button>
                         </div>
                     </div>
                 </div>

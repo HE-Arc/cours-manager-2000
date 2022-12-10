@@ -1,0 +1,8 @@
+.table {
+    background-color: var(--light);
+    color: var(--primary);
+}
+
+.table tbody {
+    color: white;
+}

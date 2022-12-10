@@ -2,6 +2,7 @@
 
 @push('customcss')
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bulletin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/tables.css') }}">
 @endpush
 
 @section('content')
@@ -12,8 +13,8 @@
     <br>
 
     @foreach ($modules as $module)
-        <table class="table table-dark">
-            <thead class="thead-light">
+        <table class="table">
+            <thead>
                 <tr>
                     <th style="width:50%" scope="col">Module : {{ $module->name }}</th>
                     <th style="width:15%">Pondération</th>

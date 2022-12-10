@@ -1,5 +1,9 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/tables.css') }}">
+@endpush
+
 @section('content')
     <h1>
         <a class="btn btn-outline-light" href="{{ route('home') }}"><i class="fa-solid fa-angles-left"></i></a>
@@ -9,8 +13,8 @@
     <a href="{{ route('lessons.create') }}" class="btn btn-primary float-right mb-2"><i class="bi bi-plus-square-fill"></i>
         Ajouter une leçon</a>
 
-    <table class="table table-dark">
-        <thead class="thead-light">
+    <table class="table">
+        <thead>
             <tr>
                 <th scope="col">Jour</th>
                 <th scope="col">Période de début</th>

@@ -1,13 +1,17 @@
 @extends('layout.app')
 
+@push('customcss')
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/tables.css') }}">
+@endpush
+
 @section('content')
     <h1>Notes</h1>
 
     <a href="{{ route('grades.create') }}" class="btn btn-primary float-right mb-2"><i class="bi bi-plus-square-fill"></i>
         Ajouter une Note</a>
 
-    <table class="table table-dark">
-        <thead class="thead-light">
+    <table class="table">
+        <thead>
             <tr>
                 <th scope="col">Cours</th>
                 <th scope="col">Valeur</th>
