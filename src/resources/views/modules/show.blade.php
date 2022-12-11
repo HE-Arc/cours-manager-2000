@@ -24,7 +24,7 @@
                         <div class="cm-card-title-truncate">
                             {{ $course->name }}
                         </div>
-                        <span>{{ $module->id }}.{{ $course->id }}</span>
+                        <span>{{ $module->id }}.{{ $course->indicator }}</span>
                         <span class="cm-failure">ÉCHEC</span>
                     </div>
                     <div class="cm-card-content">

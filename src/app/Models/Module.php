@@ -10,6 +10,7 @@ class Module extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'name',
         'minimal_avg',
     ];

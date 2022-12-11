@@ -10,6 +10,7 @@ class Course extends Model
     use HasFactory;
 
     protected $fillable = [
+        'indicator',
         'module_id',
         'name',
         'weighting',

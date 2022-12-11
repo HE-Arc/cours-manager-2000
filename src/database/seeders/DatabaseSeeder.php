@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LocationSeeder::class);
         $this->call(PeriodSeeder::class);
         $this->call(SectionClassSeeder::class);
+        $this->call(ISC3ilSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
