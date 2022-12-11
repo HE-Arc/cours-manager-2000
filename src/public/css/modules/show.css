@@ -29,10 +29,24 @@
 
 .cm-card-infos .cm-card-title {
     color: var(--primary);
+    text-transform: uppercase;
 }
 
 .cm-card-infos .cm-card-content {
-    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.cm-card-infos .cm-card-content .cm-card-content-module-passed {
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.cm-card-infos .cm-card-content .cm-passed {
+    color: var(--success);
+}
+
+.cm-card-infos .cm-card-content .cm-failed {
+    color: var(--danger);
 }
 
 /* Courses */

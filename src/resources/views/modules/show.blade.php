@@ -10,10 +10,21 @@
     <div id="module-show-view" class="container">
         <div class="cm-card-infos">
             <div class="cm-card-title h3">
-                Titre
+                {{ $module->name }}
             </div>
             <div class="cm-card-content">
-                Content
+                <div class="cm-card-content-module-passed {{ $module->isPassed() ? 'cm-passed' : 'cm-failed'}}">
+                    ➧ Module {{ $module->isPassed() ? 'Réussi' : 'Échoué'}}
+                </div>
+                <div>
+                    ➧ {{ count($module->courses) }} cours
+                </div>
+                <div>
+                    ➧ Moyenne Requise : {{ $module->minimal_avg }}
+                </div>
+                <div>
+                    ➧ Moyenne : {{ $module->mean() }}
+                </div>
             </div>
         </div>
         <div class="cm-courses-container">

@@ -15,7 +15,18 @@
                 {{ $course->name }}
             </div>
             <div class="cm-card-content">
-                Content
+                <div class="cm-card-content-course-passed {{ $course->isPassed() ? 'cm-passed' : 'cm-failed'}}">
+                    ➧ Cours {{ $course->isPassed() ? 'Réussi' : 'Échoué'}}
+                </div>
+                <div>
+                    ➧ {{ count($course->grades) }} note(s)
+                </div>
+                <div>
+                    ➧ Moyenne Requise : {{ $course->minimal_avg }}
+                </div>
+                <div>
+                    ➧ Poids dans le module : {{ $course->weighting }}
+                </div>
             </div>
         </div>
         <div class="cm-means-container">
