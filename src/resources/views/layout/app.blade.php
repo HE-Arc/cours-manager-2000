@@ -22,28 +22,37 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('home') }}">Home</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{ route('modules.index') }}">Modules</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Horaire</a>
-                    </li> --}}
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ route('bulletin.index') }}>Bulletin</a>
-                    </li>
-                </ul>
+    @if (Auth::user())
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ route('home') }}">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+
+                        @if (Auth::user()->admin)
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ route('modules.index') }}>Modules</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ route('courses.index') }}>Cours</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ route('lessons.index') }}>Leçons</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href={{ route('bulletin.index') }}>Bulletin</a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    @endif
 
     <!-- Begin page content -->
     <div class="container mt-3">
