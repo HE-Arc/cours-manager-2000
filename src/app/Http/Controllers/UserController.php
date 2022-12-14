@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -48,6 +49,15 @@ class UserController extends Controller
         $request->session()->regenerate();
 
         return redirect()->route('home')->with("success", "successfully logged in !");
+    }
+
+    public function logout()
+    {
+        Session::flush();
+
+        Auth::logout();
+
+        return redirect('');
     }
 
     /**
