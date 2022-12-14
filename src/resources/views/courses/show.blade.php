@@ -15,8 +15,8 @@
                 {{ $course->name }}
             </div>
             <div class="cm-card-content">
-                <div class="cm-card-content-course-passed {{ $course->isPassed() ? 'cm-passed' : 'cm-failed'}}">
-                    ➧ Cours {{ $course->isPassed() ? 'Réussi' : 'Échoué'}}
+                <div class="cm-card-content-course-passed {{ $course->isPassed() ? 'cm-passed' : 'cm-failed' }}">
+                    ➧ Cours {{ $course->isPassed() ? 'Réussi' : 'Échoué' }}
                 </div>
                 <div>
                     ➧ {{ count($course->grades) }} note(s)
@@ -53,7 +53,9 @@
                     <tr>
                         <th scope="col"></th>
                         @foreach ($course->grades as $grade)
-                            <th scope="col" class="text-center">{{ $grade->created_at->format('d/m/Y') }}</th>
+                            <th scope="col" class="text-center"><a
+                                    href="{{ route('grades.edit', $grade->id) }}">{{ $grade->created_at->format('d/m/Y') }}</a>
+                            </th>
                         @endforeach
                     </tr>
                 </thead>

@@ -88,10 +88,13 @@ class GradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Grade::findOrFail($id)->update($request->all());
+        $grade = Grade::findOrFail($id);
+        $grade->update($request->all());
+
+        $course_id = $grade->course->id;
 
         return redirect()
-            ->route("grades.index")
+            ->route("courses.show", $course_id)
             ->with("success", "Grade updated successfully");
     }
 
@@ -103,10 +106,13 @@ class GradeController extends Controller
      */
     public function destroy($id)
     {
-        Grade::findOrFail($id)->delete();
+        $grade = Grade::findOrFail($id);
+        $course_id = $grade->course->id;
+
+        $grade->delete();
 
         return redirect()
-            ->route("grades.index")
+            ->route("courses.show", $course_id)
             ->with("success", "Grade deleted successfully");
     }
 }
