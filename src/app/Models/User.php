@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'admin',
         'email',
         'password',
+        'section_class'
     ];
 
     /**
@@ -41,4 +44,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* * * * * * * * * * * * * * * *\
+    |*           GETTERS           *|
+    \* * * * * * * * * * * * * * * */
+
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
+
+    public function sectionClass()
+    {
+        return $this->belongsTo(SectionClass::class);
+    }
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
 }

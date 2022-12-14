@@ -21,4 +21,9 @@ class SectionClass extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }
