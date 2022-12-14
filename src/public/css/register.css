@@ -3,6 +3,7 @@
 .cm-register {
     position: relative;
     left: calc(50% - 300px);
+    top: 30px;
 
     width: 600px;
 
