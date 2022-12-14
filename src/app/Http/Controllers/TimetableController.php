@@ -31,8 +31,6 @@ class TimetableController extends Controller
         $css_class_day_cell = "class=\"daycell\"";
         $css_class_lesson_row = "class=\"lesson\"";
         $css_class_lesson_tile = "class=\"tile\"";
-        $css_class_lesson_name = "class=\"name\"";
-        $css_class_lesson_time = "class=\"time\"";
 
         // Table parameters
         $table_params = "class=\"day\" border=\"1\" cellspacing=\"1\" align=\"center\"";
