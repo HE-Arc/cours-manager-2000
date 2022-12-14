@@ -9,6 +9,7 @@
 
 /* Button Base Specification */
 
+a.cm-button,
 .cm-button {
     position: relative;
     display: inline-block;
@@ -17,8 +18,8 @@
     padding: 10px 25px;
     text-decoration: none;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.4) !important;
+    letter-spacing: 2px !important;
     font-size: 16px;
     transition: 0.5s;
 }

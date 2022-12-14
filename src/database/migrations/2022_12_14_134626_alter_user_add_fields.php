@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('name', 'first_name');
             $table->string('last_name');
-            $table->boolean('admin');
+            $table->boolean('admin')->default(false);
             $table->foreignId('section_classe_id')
                 ->nullable()
                 ->constrained()
