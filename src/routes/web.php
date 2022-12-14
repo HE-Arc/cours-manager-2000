@@ -58,7 +58,7 @@ Route::delete('/modules/destroy/{id}', [ModuleController::class, 'destroy'])->na
 Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create')->middleware('auth')->middleware('secretary');
 Route::post('/courses/store', [CourseController::class, 'store'])->name('courses.store')->middleware('auth')->middleware('secretary');
 
-Route::get('/courses', [CourseController::class, 'index'])->name('courses.index')->middleware('auth');
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index')->middleware('auth')->middleware('secretary');
 Route::get('/courses/show/{id}', [CourseController::class, 'show'])->name('courses.show')->middleware('auth');
 
 Route::get('/courses/edit/{id}', [CourseController::class, 'edit'])->name('courses.edit')->middleware('auth')->middleware('secretary');
@@ -82,8 +82,8 @@ Route::delete('/grades/destroy/{id}', [GradeController::class, 'destroy'])->name
 Route::get('/lessons/create', [LessonController::class, 'create'])->name('lessons.create')->middleware('auth')->middleware('secretary');
 Route::post('/lessons/store', [LessonController::class, 'store'])->name('lessons.store')->middleware('auth')->middleware('secretary');
 
-Route::get('/lessons', [LessonController::class, 'index'])->name('lessons.index')->middleware('auth');
-Route::get('/lessons/show/{id}', [LessonController::class, 'show'])->name('lessons.show')->middleware('auth');
+Route::get('/lessons', [LessonController::class, 'index'])->name('lessons.index')->middleware('auth')->middleware('secretary');
+Route::get('/lessons/show/{id}', [LessonController::class, 'show'])->name('lessons.show')->middleware('auth')->middleware('secretary');
 
 Route::get('/lessons/edit/{id}', [LessonController::class, 'edit'])->name('lessons.edit')->middleware('auth')->middleware('secretary');
 Route::put('/lessons/update/{id}', [LessonController::class, 'update'])->name('lessons.update')->middleware('auth')->middleware('secretary');

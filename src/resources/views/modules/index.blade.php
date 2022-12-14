@@ -10,6 +10,13 @@
         Modules
     </h1>
 
+    @if (Auth::user()->admin)
+        <a href="{{ route('modules.create') }}" class="btn btn-outline-primary float-right mb-2">
+            <i class="bi bi-plus-square-fill"></i>
+            Ajouter un module
+        </a>
+    @endif
+
     <div id="module-index-view" class="container mt-5">
         @foreach ($modules as $module)
             <a href="{{ route('modules.show', $module->id) }}"

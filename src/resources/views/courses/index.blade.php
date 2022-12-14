@@ -10,8 +10,10 @@
         Cours
     </h1>
 
-    <a href="{{ route('courses.create') }}" class="btn btn-primary float-right mb-2"><i class="bi bi-plus-square-fill"></i>
-        Ajouter un cours</a>
+    <a href="{{ route('courses.create') }}" class="btn btn-outline-primary float-right mb-2">
+        <i class="bi bi-plus-square-fill"></i>
+        Ajouter un cours
+    </a>
 
     <table class="table">
         <thead>
@@ -31,14 +33,16 @@
                     <td>{{ $course->weighting }}</td>
                     <td>{{ $course->minimal_avg }}</td>
                     <td>
-                        <a class="btn btn-info" href="{{ route('courses.show', $course->id) }}"><i
-                                class="bi bi-eye-fill"></i></a>
-                        <a class="btn btn-primary" href="{{ route('courses.edit', $course->id) }}"><i
-                                class="bi bi-pencil-fill"></i></a>
-                        <form action="{{ route('courses.destroy', $course->id) }}" method="POST">
+                        <a class="btn btn-outline-info" href="{{ route('courses.show', $course->id) }}">
+                            <i class="bi bi-eye-fill"></i>
+                        </a>
+                        <a class="btn btn-outline-primary" href="{{ route('courses.edit', $course->id) }}">
+                            <i class="bi bi-pencil-fill"></i>
+                        </a>
+                        <form class="d-inline-flex" action="{{ route('courses.destroy', $course->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                            <button type="submit" class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i></button>
                         </form>
                     </td>
                 </tr>
