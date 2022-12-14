@@ -53,7 +53,7 @@ class UserController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with("success", "successfully logged in !");
+        return redirect()->route('home')->with("success", "Connexion réussie !");
     }
 
     public function logout()
@@ -96,6 +96,6 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home')->with("success", "new user created !");
+        return redirect()->route('home')->with("success", "Création d'un nouvel utilisateur réussie !");
     }
 }

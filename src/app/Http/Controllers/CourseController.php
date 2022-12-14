@@ -55,7 +55,7 @@ class CourseController extends Controller
 
         return redirect()
             ->route("courses.index")
-            ->with("success", "Course created successfully");
+            ->with("success", "Création du cours réussie !");
     }
 
     /**
@@ -95,7 +95,7 @@ class CourseController extends Controller
 
         return redirect()
             ->route("courses.index")
-            ->with("success", "Course updated successfully");
+            ->with("success", "Modification du cours réussie !");
     }
 
     /**
@@ -110,6 +110,6 @@ class CourseController extends Controller
 
         return redirect()
             ->route("courses.index")
-            ->with("success", "Course deleted successfully");
+            ->with("success", "Suppression du cours réussie !");
     }
 }

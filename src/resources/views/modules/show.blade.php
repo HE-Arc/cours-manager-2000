@@ -13,8 +13,8 @@
                 {{ $module->name }}
             </div>
             <div class="cm-card-content">
-                <div class="cm-card-content-module-passed {{ $module->isPassed() ? 'cm-passed' : 'cm-failed'}}">
-                    ➧ Module {{ $module->isPassed() ? 'Réussi' : 'Échoué'}}
+                <div class="cm-card-content-module-passed {{ $module->isPassed() ? 'cm-passed' : 'cm-failed' }}">
+                    ➧ Module {{ $module->isPassed() ? 'Réussi' : 'Échoué' }}
                 </div>
                 <div>
                     ➧ {{ count($module->courses) }} cours
@@ -60,8 +60,9 @@
                 </a>
             @endforeach
         </div>
-        <div class="cm-stats-container">
+        {{-- pas le temps...
+            <div class="cm-stats-container">
             Statistics
-        </div>
+        </div> --}}
     </div>
 @endsection

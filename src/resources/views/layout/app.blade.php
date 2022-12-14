@@ -30,7 +30,7 @@
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav">
 
                         @if (Auth::user()->admin)
@@ -49,6 +49,10 @@
                             </li>
                         @endif
                     </ul>
+                    <a class="btn btn-outline-light" href="{{ route('user.logout') }}">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Logout
+                    </a>
                 </div>
             </div>
         </nav>

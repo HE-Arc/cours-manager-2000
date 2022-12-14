@@ -53,8 +53,12 @@
                     <tr>
                         <th scope="col"></th>
                         @foreach ($course->grades as $grade)
-                            <th scope="col" class="text-center"><a
-                                    href="{{ route('grades.edit', $grade->id) }}">{{ $grade->created_at->format('d/m/Y') }}</a>
+                            <th scope="col" class="text-center">
+                                <span data-toggle="tooltip" data-placement="top" title="Editer">
+                                    <a href="{{ route('grades.edit', $grade->id) }}">
+                                        {{ $grade->created_at->format('d/m/Y') }}
+                                    </a>
+                                </span>
                             </th>
                         @endforeach
                     </tr>
@@ -83,8 +87,9 @@
                 Ajouter Note
             </a>
         </div>
-        <div class="cm-stats-container">
+        {{-- pas le temps...
+            <div class="cm-stats-container">
             Statistics
-        </div>
+        </div> --}}
     </div>
 @endsection

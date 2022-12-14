@@ -47,7 +47,7 @@ class ModuleController extends Controller
         $module->save();
         return redirect()
             ->route("modules.index")
-            ->with("success", "module created successfully");
+            ->with("success", "Création du module réussie !");
     }
 
     /**
@@ -86,7 +86,7 @@ class ModuleController extends Controller
         Module::findOrFail($id)->update($request->all());
         return redirect()
             ->route("modules.index")
-            ->with("success", "Module updated successfully");
+            ->with("success", "Modification du module réussie !");
     }
 
     /**
@@ -100,6 +100,6 @@ class ModuleController extends Controller
         Module::findOrFail($id)->delete();
         return redirect()
             ->route("modules.index")
-            ->with("success", "Module deleted successfully");
+            ->with("success", "Suppression du module réussie !");
     }
 }

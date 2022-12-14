@@ -52,7 +52,7 @@ class GradeController extends Controller
 
         return redirect()
             ->route("courses.show", $request->course_id)
-            ->with("success", "Grade created successfully");
+            ->with("success", "Ajout de la note réussi !");
     }
 
     /**
@@ -95,7 +95,7 @@ class GradeController extends Controller
 
         return redirect()
             ->route("courses.show", $course_id)
-            ->with("success", "Grade updated successfully");
+            ->with("success", "Modification de la note réussie !");
     }
 
     /**
@@ -113,6 +113,6 @@ class GradeController extends Controller
 
         return redirect()
             ->route("courses.show", $course_id)
-            ->with("success", "Grade deleted successfully");
+            ->with("success", "Suppression de la note réussie !");
     }
 }

@@ -68,7 +68,7 @@ class LessonController extends Controller
 
         return redirect()
             ->route("lessons.index")
-            ->with("success", "Lesson created successfully");
+            ->with("success", "Création de la leçons réussie !");
     }
 
     /**
@@ -122,7 +122,7 @@ class LessonController extends Controller
 
         return redirect()
             ->route("lessons.index")
-            ->with("success", "Lesson updated successfully");
+            ->with("success", "Modification de la leçon réussie !");
     }
 
     /**
@@ -137,6 +137,6 @@ class LessonController extends Controller
 
         return redirect()
             ->route("lessons.index")
-            ->with("success", "Lesson deleted successfully");
+            ->with("success", "Suppression de la leçon réussie !");
     }
 }
