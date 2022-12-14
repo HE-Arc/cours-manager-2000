@@ -6,17 +6,21 @@ use App\Models\Lesson;
 use App\Models\Day;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TimetableController extends Controller
 {
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
     |*                           PUBLIC                            *|
     \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-    public function index() {
-        $lessons = User::findOrFail(0)->lessons;
+    public function index()
+    {
+        $lessons = User::findOrFail(Auth::user()->id)->lessons;
 
-        return view("timetable.show", ["timetable" => self::parseLessons($lessons),
-                                       "lessons"   => $lessons]);
+        return view("timetable.show", [
+            "timetable" => self::parseLessons($lessons),
+            "lessons"   => $lessons
+        ]);
     }
 
 
@@ -40,8 +44,7 @@ class TimetableController extends Controller
         $schedule = "";
         $schedule .= "<div " . $css_class_div . ">";
 
-        foreach(Day::cases() as $day)
-        {
+        foreach (Day::cases() as $day) {
             // Every day is one table filled with the days lessons
             // Static part of table
             $day_table = "";
@@ -58,12 +61,10 @@ class TimetableController extends Controller
             $lesson_row = "";
             $previous_period = 0; // first lesson checks for start of day
 
-            foreach($lessons as $lesson)
-            {
+            foreach ($lessons as $lesson) {
                 $lesson_row = "";
-                if($lesson->string_day() == $day->stringDay())
-                {
-                    if($lesson->period_id - $previous_period > 1) // the lesson isn't starting when the last ended
+                if ($lesson->string_day() == $day->stringDay()) {
+                    if ($lesson->period_id - $previous_period > 1) // the lesson isn't starting when the last ended
                     {
                         $lesson_row .= "<td> ";
                         $lesson_row .= self::createNSpaces($lesson->period_id - $previous_period - 1);
@@ -81,7 +82,7 @@ class TimetableController extends Controller
 
                     $lesson_td .= self::createNSpaces($lesson->nb_periods - 2);
 
-                    $lesson_td .= $lesson->end_period() . "<br>" ;
+                    $lesson_td .= $lesson->end_period() . "<br>";
 
                     $lesson_row .= $lesson_td;
                     $lesson_row .= "</tr>";
@@ -91,17 +92,13 @@ class TimetableController extends Controller
                 }
             }
 
-            if($previous_period != 14 or $previous_period != 25)
-            {
+            if ($previous_period != 14 or $previous_period != 25) {
                 $lesson_row = "";
-                if($previous_period < 14)
-                {
+                if ($previous_period < 14) {
                     $lesson_row .= "<tr><td>";
                     $lesson_row .= self::createNSpaces(14 - $previous_period);
                     $lesson_row .= "</td></tr>";
-                }
-                else if ($previous_period < 25)
-                {
+                } else if ($previous_period < 25) {
                     $lesson_row .= "<tr><td>";
                     $lesson_row .= self::createNSpaces(25 - $previous_period);
                     $lesson_row .= "</td></tr>";
@@ -122,10 +119,8 @@ class TimetableController extends Controller
     private static function createNSpaces($n)
     {
         $html = "";
-        if($n > 0)
-        {
-            for($i = 0; $i < $n % 14; $i++)
-            {
+        if ($n > 0) {
+            for ($i = 0; $i < $n % 14; $i++) {
                 $html .= "<br>"; // adding space for length visualisation
             }
         }
@@ -135,6 +130,4 @@ class TimetableController extends Controller
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
     |*                   PRIVATE ATTRIBUTES                        *|
     \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
 }
-
