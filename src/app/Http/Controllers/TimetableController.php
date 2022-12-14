@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use App\Models\Day;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TimetableController extends Controller
@@ -12,10 +13,10 @@ class TimetableController extends Controller
     |*                           PUBLIC                            *|
     \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     public function index() {
-        /*$lessons = Lesson::all();
+        $lessons = User::findOrFail(0)->lessons;
 
         return view("timetable.show", ["timetable" => self::parseLessons($lessons),
-                                       "lessons"   => $lessons]);*/
+                                       "lessons"   => $lessons]);
     }
 
 

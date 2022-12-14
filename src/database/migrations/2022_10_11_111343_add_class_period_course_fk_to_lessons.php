@@ -15,24 +15,15 @@ return new class extends Migration
     {
         Schema::table('lessons', function (Blueprint $table) {
             $table->foreignId('class_id')
-                ->nullable()
-                ->constrained('sectionclasses')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->nullable();
 
 
             $table->foreignId('period_id')
-                ->nullable()
-                ->constrained()
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->nullable();
 
 
             $table->foreignId('course_id')
-                ->nullable()
-                ->constrained()
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+                ->nullable();
         });
     }
 

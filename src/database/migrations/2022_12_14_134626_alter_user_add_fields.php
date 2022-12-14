@@ -33,7 +33,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['section_class_id']);
+            $table->dropForeign(['section_classe_id']);
             $table->dropColumn('admin');
             $table->dropColumn('last_name');
             $table->renameColumn('first_name', 'name');

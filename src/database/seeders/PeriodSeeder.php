@@ -35,7 +35,7 @@ class PeriodSeeder extends Seeder
             ['location_id' => '2', 'start_time' => '10:15:00', 'end_time' => '11:00:00'],
             ['location_id' => '2', 'start_time' => '11:00:00', 'end_time' => '11:45:00'],
             ['location_id' => '2', 'start_time' => '11:45:00', 'end_time' => '12:30:00'],
-            ['location_id' => '2', 'start_time' => '12:15:00', 'end_time' => '13:30:00'],
+            ['location_id' => '2', 'start_time' => '12:45:00', 'end_time' => '13:30:00'],
             ['location_id' => '2', 'start_time' => '13:30:00', 'end_time' => '14:15:00'],
             ['location_id' => '2', 'start_time' => '14:30:00', 'end_time' => '15:15:00'],
             ['location_id' => '2', 'start_time' => '15:15:00', 'end_time' => '16:00:00'],

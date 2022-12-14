@@ -20,11 +20,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PeriodSeeder::class);
         $this->call(SectionClassSeeder::class);
         $this->call(ISC3ilSeeder::class);
+        $this->call(ISC3ilbLessonSeeder::class);
 
-        // FOR DEBUGGING
-        $this->call(ModuleSeeder::class);
-        $this->call(CourseSeeder::class);
-        $this->call(LessonSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
