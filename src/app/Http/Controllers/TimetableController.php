@@ -12,10 +12,10 @@ class TimetableController extends Controller
     |*                           PUBLIC                            *|
     \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     public function index() {
-        $lessons = Lesson::all();
+        /*$lessons = Lesson::all();
 
         return view("timetable.show", ["timetable" => self::parseLessons($lessons),
-                                       "lessons"   => $lessons]);
+                                       "lessons"   => $lessons]);*/
     }
 
 

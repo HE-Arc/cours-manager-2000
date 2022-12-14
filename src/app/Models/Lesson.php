@@ -52,7 +52,7 @@ class Lesson extends Model
     /**
      * Be careful the method name must be the same as the class name.
      */
-    public function class()
+    public function sectionClass()
     {
         return $this->belongsTo(SectionClass::class);
     }
