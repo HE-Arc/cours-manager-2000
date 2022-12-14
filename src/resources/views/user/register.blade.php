@@ -48,9 +48,9 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <select class="cm-select-form" name="section_class">
-                        <option selected></option>
+            <div class="cm-select-box">
+                <select name="section_class">
+                    <option disabled selected value> -- séléctionnez -- </option>
                     @foreach ($section_classes as $section_class)
                         <option value="{{ $section_class->id }}">{{ $section_class->name }}</option>
                     @endforeach

@@ -43,11 +43,15 @@
     letter-spacing: 0.1em;
 }
 
+/* Input Box */
+
+.cm-select-box,
 .cm-input-box {
     position: relative;
     width: 350px;
 }
 
+.cm-select-box select,
 .cm-input-box input {
     width: 100%;
     padding: 10px;
@@ -60,6 +64,7 @@
     transition: 0.5s;
 }
 
+.cm-select-box span,
 .cm-input-box span {
     position: absolute;
     left: 10px;
@@ -71,11 +76,15 @@
     transition: 0.5s;
 }
 
+.cm-select-box select:focus,
+.cm-select-box select:valid,
 .cm-input-box input:focus,
 .cm-input-box input:valid {
     border: 1px solid #2e2f5b;
 }
 
+.cm-select-box select:valid ~ span,
+.cm-select-box select:focus ~ span,
 .cm-input-box input:valid ~ span,
 .cm-input-box input:focus ~ span {
     color: #f4d25e;
