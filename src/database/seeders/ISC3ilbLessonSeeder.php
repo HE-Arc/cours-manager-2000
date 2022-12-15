@@ -41,12 +41,12 @@ class ISC3ilbLessonSeeder extends Seeder
         foreach ($lessons as $lesson) {
             Lesson::create(array(
                 'class_id' => $lesson["class_id"],
-                'day'=> $lesson["day"],
+                'day' => $lesson["day"],
                 'period_id' => $lesson["period_id"],
-                'nb_periods'=> $lesson["nb_periods"],
-                'professor'=> $lesson["professor"],
-                'classroom'=> $lesson["classroom"],
-                'course_id'=> $lesson["course_id"]
+                'nb_periods' => $lesson["nb_periods"],
+                'professor' => $lesson["professor"],
+                'classroom' => $lesson["classroom"],
+                'course_id' => $lesson["course_id"]
             ));
         }
     }

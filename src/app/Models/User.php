@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -45,9 +46,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function hasModule($id)
+    {
+        $modules = Auth::user()->modules;
+
+        foreach ($modules as $module) {
+            if ($module->id == $id)
+                return true;
+        }
+
+        return false;
+    }
+
     /* * * * * * * * * * * * * * * *\
     |*           GETTERS           *|
     \* * * * * * * * * * * * * * * */
+
+    public function modules()
+    {
+        return $this->belongsToMany(Module::class);
+    }
 
     public function lessons()
     {

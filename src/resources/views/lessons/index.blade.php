@@ -24,8 +24,9 @@
                 <th scope="col">Période de début</th>
                 <th scope="col">Nb périodes</th>
                 <th scope="col">Cours</th>
-                <th scope="col">Prof</th>
                 <th scope="col">Classe</th>
+                <th scope="col">Prof</th>
+                <th scope="col">Salle</th>
                 <th scope="col">&nbsp;</th>
             </tr>
         </thead>
@@ -36,6 +37,7 @@
                     <td>{{ $lesson->start_period() ?? '-' }}</td>
                     <td>{{ $lesson->nb_periods }}</td>
                     <td>{{ $lesson->course->name ?? '-' }}</td>
+                    <td>{{ $lesson->sectionClass->name ?? '-' }}</td>
                     <td>{{ $lesson->professor }}</td>
                     <td>{{ $lesson->classroom }}</td>
                     <td>

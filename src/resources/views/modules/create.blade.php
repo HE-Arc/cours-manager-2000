@@ -22,6 +22,12 @@
                         <div class="form-row">
 
                             <div class="form-group col-12">
+                                <label for="inputId">ID</label>
+                                <input type="text" name="id" value="{{ old('id') }}" class="form-control"
+                                    id="inputId">
+                            </div>
+
+                            <div class="form-group col-12">
                                 <label for="inputName">Nom</label>
                                 <input type="text" name="name" value="{{ old('name') }}" class="form-control"
                                     id="inputName">

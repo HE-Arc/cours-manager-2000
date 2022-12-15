@@ -17,11 +17,33 @@
             </div>
             <div class="card-body">
                 <div class="form-row">
-                    <div class="form-group col-12">
-                        <label for="inputName">Nom</label>
-                        <input type="text" name="name" value="{{ $course->name }}" class="form-control"
-                            id="inputName">
+
+                    <div class="row">
+                        <div class="form-group col-9">
+                            <label for="inputName">Nom</label>
+                            <input type="text" name="name" value="{{ $course->name }}" class="form-control"
+                                id="inputName">
+                        </div>
+
+                        <div class="form-group col-3">
+                            <label for="inputIndicator">Indicateur</label>
+                            <input type="text" name="indicator" value="{{ $course->indicator }}" class="form-control"
+                                id="inputIndicator">
+                        </div>
                     </div>
+
+                    <div class="input-group col-12 mt-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputModule">Module</label>
+                        </div>
+                        <select class="custom-select" name="module_id" id="inputModule">
+                            @foreach ($modules as $module)
+                                <option {{ $course->module_id == $module->id ? 'selected' : '' }}
+                                    value="{{ $module->id }}">{{ $module->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="row mt-3">
                         <div class="form-group col-6">
                             <label for="inputWeighting">Pondération</label>

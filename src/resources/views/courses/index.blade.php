@@ -18,6 +18,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">Indicateur</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Module</th>
                 <th scope="col">Pondération</th>
@@ -28,14 +29,15 @@
         <tbody>
             @foreach ($courses as $course)
                 <tr>
+                    <td>{{ $course->indicator }}</td>
                     <td>{{ $course->name }}</td>
                     <td>{{ $course->module->name ?? 'Module inconnu...' }}</td>
                     <td>{{ $course->weighting }}</td>
                     <td>{{ $course->minimal_avg }}</td>
                     <td>
-                        <a class="btn btn-outline-info" href="{{ route('courses.show', $course->id) }}">
+                        {{-- <a class="btn btn-outline-info" href="{{ route('courses.show', $course->id) }}">
                             <i class="bi bi-eye-fill"></i>
-                        </a>
+                        </a> --}}
                         <a class="btn btn-outline-primary" href="{{ route('courses.edit', $course->id) }}">
                             <i class="bi bi-pencil-fill"></i>
                         </a>

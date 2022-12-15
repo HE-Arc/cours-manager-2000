@@ -43,6 +43,7 @@ class CourseController extends Controller
             "name" => "required|min:5|max:50",
             "weighting" => "required|gt:0|lt:20",
             "minimal_avg" => "required|gt:0|lt:6",
+            "indicator" => "required|gt:0|lt:6",
             "module_id" => "nullable|integer|exists:modules,id"
         ]);
 
@@ -51,6 +52,7 @@ class CourseController extends Controller
         $course->weighting = $request->weighting;
         $course->minimal_avg = $request->minimal_avg;
         $course->module_id = $request->module_id;
+        $course->indicator = $request->indicator;
         $course->save();
 
         return redirect()
@@ -78,8 +80,9 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
+        $modules = Module::all();
         $course = Course::findOrFail($id);
-        return view('courses.edit', ['course' => $course]);
+        return view('courses.edit', ['course' => $course, 'modules' => $modules]);
     }
 
     /**

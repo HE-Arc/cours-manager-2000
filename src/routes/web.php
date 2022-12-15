@@ -54,6 +54,10 @@ Route::put('/modules/update/{id}', [ModuleController::class, 'update'])->name('m
 
 Route::delete('/modules/destroy/{id}', [ModuleController::class, 'destroy'])->name('modules.destroy')->middleware('auth')->middleware('secretary');
 
+Route::get('/modules/subscription', [ModuleController::class, 'subscription'])->name('modules.subscription')->middleware('auth')->middleware('student');
+Route::post('/modules/subscribe/{id}', [ModuleController::class, 'subscribe'])->name('modules.subscribe')->middleware('auth')->middleware('student');
+Route::post('/modules/unsubscribe/{id}', [ModuleController::class, 'unsubscribe'])->name('modules.unsubscribe')->middleware('auth')->middleware('student');
+
 /* Courses CRUD routes with security */
 Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create')->middleware('auth')->middleware('secretary');
 Route::post('/courses/store', [CourseController::class, 'store'])->name('courses.store')->middleware('auth')->middleware('secretary');

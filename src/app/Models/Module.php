@@ -19,6 +19,11 @@ class Module extends Model
     |*           GETTERS           *|
     \* * * * * * * * * * * * * * * */
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     public function courses()
     {
         return $this->hasMany(Course::class);
