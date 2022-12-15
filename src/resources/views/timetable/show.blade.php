@@ -5,6 +5,6 @@
 
     {!! $timetable !!}
 
-    <h1>Lessons raw</h1>
-    {{ $lessons }}
+    {{-- <h1>Lessons raw</h1>
+    {{ $lessons }} --}}
 @endsection

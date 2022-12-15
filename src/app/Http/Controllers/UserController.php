@@ -88,7 +88,7 @@ class UserController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
-            'section_class_id' => $request->section_class,
+            'section_classe_id' => $request->section_class,
             'password' => Hash::make($request->password),
         ]);
 

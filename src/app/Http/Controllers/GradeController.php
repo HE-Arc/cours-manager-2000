@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Grade;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GradeController extends Controller
 {
@@ -48,6 +49,7 @@ class GradeController extends Controller
         $grade->value = $request->value;
         $grade->coeff = $request->coeff;
         $grade->course_id = $request->course_id;
+        $grade->user_id = Auth::user()->id;
         $grade->save();
 
         return redirect()

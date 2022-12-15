@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Lesson;
 use App\Models\Day;
-use App\Models\User;
+use App\Models\SectionClass;
+use App\Models\Course;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TimetableController extends Controller
 {
@@ -15,7 +16,19 @@ class TimetableController extends Controller
     \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     public function index()
     {
-        $lessons = User::findOrFail(Auth::user()->id)->lessons;
+        // Request :
+        //     SELECT l.id FROM lessons AS l
+        //     INNER JOIN courses AS c ON l.course_id = c.id
+        //     INNER JOIN module_user AS m ON c.module_id = m.module_id
+        //     INNER JOIN users AS u ON m.user_id = u.id
+        //     WHERE u.section_classe_id = l.class_id;
+
+        $lessons = DB::table('lessons')
+            ->join('courses', 'lessons.course_id', '=', 'courses.id')
+            ->join('module_user', 'courses.module_id', '=', 'module_user.module_id')
+            ->join('users', 'module_user.user_id', '=', 'users.id')
+            ->select(['lessons.id'])
+            ->get();
 
         return view("timetable.show", [
             "timetable" => self::parseLessons($lessons),
@@ -62,8 +75,10 @@ class TimetableController extends Controller
             $previous_period = 0; // first lesson checks for start of day
 
             foreach ($lessons as $lesson) {
+                $lesson = Lesson::findOrFail($lesson->id);
+
                 $lesson_row = "";
-                if ($lesson->string_day() == $day->stringDay()) {
+                if ($lesson->day == $day->value) {
                     if ($lesson->period_id - $previous_period > 1) // the lesson isn't starting when the last ended
                     {
                         $lesson_row .= "<td> ";
@@ -75,7 +90,6 @@ class TimetableController extends Controller
                     $lesson_td = "";
                     $lesson_td .= "<td " . $css_class_lesson_tile . ">";
                     $lesson_td .= $lesson->start_period() . "<br>";
-                    $lesson_td .= $lesson->class->name . "<br>";
                     $lesson_td .= $lesson->course->name . "<br>";
                     $lesson_td .= $lesson->professor . "<br>";
                     $lesson_td .= $lesson->classroom . "<br>";

@@ -38,7 +38,7 @@
                 </div>
             </a>
         @else
-            <a href="#" class="cm-card">
+            <a href="{{ route('timetable') }}" class="cm-card">
                 <div class="cm-gradient"></div>
                 <div class="cm-title">
                     <h1>Horaire</h1>

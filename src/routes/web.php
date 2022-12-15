@@ -27,7 +27,7 @@ use App\Http\Controllers\UserController;
 /* Timetable */
 
 // Not accessible for now
-//Route::get('timetable', [TimetableController::class, 'index'])->name('timetable')->middleware('auth');
+Route::get('timetable', [TimetableController::class, 'index'])->name('timetable')->middleware('auth')->middleware('student');
 
 /* User */
 

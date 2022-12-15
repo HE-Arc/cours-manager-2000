@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Course extends Model
 {
@@ -28,7 +29,7 @@ class Course extends Model
 
     public function grades()
     {
-        return $this->hasMany(Grade::class);
+        return $this->hasMany(Grade::class)->where('user_id', Auth::user()->id);
     }
 
     public function lessons()
@@ -45,9 +46,11 @@ class Course extends Model
         $sum = 0;
         $total = 0;
 
-        if (count($this->grades) === 0) return 0;
+        $grades = $this->grades;
 
-        foreach ($this->grades as $grade) {
+        if (count($grades) === 0) return 0;
+
+        foreach ($grades as $grade) {
             $total += $grade->coeff;
             $sum += $grade->coeff * $grade->value;
         }

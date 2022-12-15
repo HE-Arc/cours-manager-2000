@@ -33,7 +33,7 @@ class LessonController extends Controller
         $classes = SectionClass::all();
         $periods = Period::all();
         $courses = Course::all();
-        $days = Day::buisnessDays();
+        $days = Day::businessDays();
 
         return view('lessons.create', ['classes' => $classes, 'periods' => $periods, 'courses' => $courses, 'days' => $days]);
     }
@@ -95,7 +95,7 @@ class LessonController extends Controller
         $classes = SectionClass::all();
         $periods = Period::all();
         $courses = Course::all();
-        $days = Day::buisnessDays();
+        $days = Day::businessDays();
 
         return view('lessons.edit', ['lesson' => $lesson, 'classes' => $classes, 'periods' => $periods, 'courses' => $courses, 'days' => $days]);
     }
