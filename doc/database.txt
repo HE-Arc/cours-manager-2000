@@ -1,5 +1,5 @@
-https://dbdiagram.io/d/6334541f7b3d2034ffda732a
-___________________________________________________________
+//// -- LEVEL 1
+//// -- Schemas, Tables and References
 
 Table users {
   id int [pk, increment]
@@ -46,11 +46,11 @@ Table lessons {
   }
 }
 
-Table timetables {
+Table module_user {
   user_id int [ref: <> users.id]
-  lesson_id int [ref: <> lessons.id]
+  module_id int [ref: <> modules.id]
   Indexes {
-    (user_id, lesson_id) [pk]
+    (user_id, module_id) [pk]
   }
 }
 
@@ -67,4 +67,12 @@ Table periodes {
 Table locations {
   id int [pk, increment]
   name varchar
+}
+
+Table grades {
+  id int [pk, increment]
+  user_id int [ref: <> users.id]
+  course_id int [ref: > courses.id]
+  value int
+  coeff int
 }
