@@ -24,13 +24,13 @@ use App\Http\Controllers\UserController;
 
 /* User */
 
-Route::get('/', [UserController::class, 'login'])->name('login');
+Route::get('/', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('login', [UserController::class, 'authentificate'])->name('user.authentificate')->middleware('guest');
 
 Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
 
-Route::get('register', [UserController::class, 'create'])->name('user.create');
-Route::post('register', [UserController::class, 'store'])->name('user.store');
+Route::get('register', [UserController::class, 'create'])->name('user.create')->middleware('guest');
+Route::post('register', [UserController::class, 'store'])->name('user.store')->middleware('guest');
 
 Route::get('timetable', [UserController::class, 'timetable'])->name('timetable')->middleware('auth')->middleware('student');
 
