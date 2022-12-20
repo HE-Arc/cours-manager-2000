@@ -45,6 +45,7 @@ class UserController extends Controller
             ->join('users', 'module_user.user_id', '=', 'users.id')
             ->join('periods', 'lessons.period_id', '=', 'periods.id')
             ->select(['lessons.id', 'periods.start_time'])
+            ->where('users.id', Auth::user()->id)
             ->orderBy('periods.start_time')
             ->get();
 
