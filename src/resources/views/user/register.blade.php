@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('customcss')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/user/register.css') }}">
 @endpush
 
 @section('content')
@@ -11,7 +11,7 @@
         <form class="needs-validation cm-register-form" action="{{ route('user.store') }}" method="POST" novalidate>
             @csrf
 
-            <h1>Register</h1>
+            <h1>S'inscrire</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger mt-3 col-12">

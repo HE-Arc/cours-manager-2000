@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\ModuleController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TimetableController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -24,11 +22,6 @@ use App\Http\Controllers\UserController;
 
 //Route::resource('lessons', LessonController::class);
 
-/* Timetable */
-
-// Not accessible for now
-Route::get('timetable', [TimetableController::class, 'index'])->name('timetable')->middleware('auth')->middleware('student');
-
 /* User */
 
 Route::get('/', [UserController::class, 'login'])->name('login');
@@ -38,6 +31,8 @@ Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
 
 Route::get('register', [UserController::class, 'create'])->name('user.create');
 Route::post('register', [UserController::class, 'store'])->name('user.store');
+
+Route::get('timetable', [UserController::class, 'timetable'])->name('timetable')->middleware('auth')->middleware('student');
 
 /* Home */
 Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');

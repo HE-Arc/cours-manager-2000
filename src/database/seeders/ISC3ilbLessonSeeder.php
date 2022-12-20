@@ -27,7 +27,7 @@ class ISC3ilbLessonSeeder extends Seeder
             ['class_id' => 1, 'day' => 3, 'period_id' => 1, 'nb_periods' => 2, 'course_id' => 3, 'professor' => 'MSA_X', 'classroom' => 'NE126'],
             ['class_id' => 1, 'day' => 3, 'period_id' => 3, 'nb_periods' => 2, 'course_id' => 14, 'professor' => 'CHE_X', 'classroom' => 'NE110'],
             ['class_id' => 1, 'day' => 3, 'period_id' => 6, 'nb_periods' => 2, 'course_id' => 9, 'professor' => 'DGR', 'classroom' => 'NE120'],
-            ['class_id' => 1, 'day' => 3, 'period_id' => 8, 'nb_periods' => 3, 'course_id' => 9, 'professor' => 'DGR', 'classroom' => 'NE128'],
+            ['class_id' => 1, 'day' => 3, 'period_id' => 8, 'nb_periods' => 4, 'course_id' => 9, 'professor' => 'DGR', 'classroom' => 'NE128'],
             // Jeudi
             ['class_id' => 1, 'day' => 4, 'period_id' => 1, 'nb_periods' => 3, 'course_id' => 6, 'professor' => 'FAL', 'classroom' => 'NE013'],
             ['class_id' => 1, 'day' => 4, 'period_id' => 6, 'nb_periods' => 2, 'course_id' => 8, 'professor' => 'ARI', 'classroom' => 'NE120'],

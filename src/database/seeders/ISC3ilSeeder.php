@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Course;
 use App\Models\Module;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -69,5 +71,13 @@ class ISC3ilSeeder extends Seeder
                 'module_id' => $course['module_id']
             ));
         }
+
+        User::create(array(
+            'first_name' => 'Admin',
+            'last_name' => "HE-ARC",
+            'admin' => true,
+            'email' => 'admin.hearc@he-arc.ch',
+            'password' => Hash::make('admin.hearc1234')
+        ));
     }
 }

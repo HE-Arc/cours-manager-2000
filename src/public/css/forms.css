@@ -3,9 +3,9 @@
     color: var(--primary);
 }
 
-    .card .card-header {
-        font-size: 1.5rem;
-    }
+.card .card-header {
+    font-size: 1.5rem;
+}
 
 .input-group-text {
     color: var(--primary);

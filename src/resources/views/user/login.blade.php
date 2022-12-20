@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @push('customcss')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/user/login.css') }}">
 @endpush
 
 @section('content')
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <a href="#">Mot de passe oublié ?</a>
+            {{-- <a id="forgot_password" href="#">Mot de passe oublié ?</a> --}}
 
             <button type="submit" class="cm-button">
                 <span class="left"></span>

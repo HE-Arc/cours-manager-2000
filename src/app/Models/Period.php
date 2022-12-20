@@ -15,9 +15,9 @@ class Period extends Model
         'end_time',
     ];
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
-    |*                           PUBLIC                            *|
-    \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * *\
+    |*           GETTERS           *|
+    \* * * * * * * * * * * * * * * */
 
     public function location()
     {
@@ -27,5 +27,21 @@ class Period extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
+    |*                           PUBLIC                            *|
+    \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    public function startTime()
+    {
+        $intDate = strtotime($this->start_time);
+        return date('H:i', $intDate);
+    }
+
+    public function endTime()
+    {
+        $intDate = strtotime($this->end_time);
+        return date('H:i', $intDate);
     }
 }
