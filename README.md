@@ -4,11 +4,19 @@ Dans le cadre du cours <b>3251.3 Développement web I</b>, nous allons créer un
 Son principe est simple, donner un outil aux étudiants pour qu'ils puissent visualiser leur grille horaire et gérer leurs notes.
 
 Membres du projet :
- - Titus Abele
- - Vincent Jeannin
- - Théo Vuilliomenet
- 
+
+-   Titus Abele
+-   Vincent Jeannin
+-   Théo Vuilliomenet
+
 Lien sur notre wiki : https://github.com/HE-Arc/cours-manager-2000/wiki
+
+Lien du site : https://coursmanager2000.k8s.ing.he-arc.ch/
+
+Identifiants de connexion compte secrétaire :
+
+-   Email : admin.hearc@he-arc.ch
+-   Mot de passe : admin.hearc1234
 
 # Documentation utilisateur
 
@@ -23,7 +31,6 @@ Pour se connecter à la version déployée de l'application, il suffit de suivre
 Afin de pouvoir se connecter à l'application, il faut d'abord se créer un compte. Le formulaire pour le faire peut être trouvé en cliquant le bouton "Créer un compte" encadré en rouge ci-dessous.
 
 ![login-encadr](https://user-images.githubusercontent.com/114073517/208655636-a4d9064d-e21b-4f33-8e35-8249ca5262dc.png)
-
 
 Il vous amènera sur la page de création de compte qui se présente sous cette forme :
 
@@ -51,7 +58,6 @@ Dans un premier temps, ouvrons les "Modules". Cette page nous amène vers une vu
 
 ![modules-encadr](https://user-images.githubusercontent.com/114073517/208656202-fb428f52-0396-4154-a71f-52c3076bc181.png)
 
-
 L'application nous présente alors une liste de modules (correspondant à la classe que nous avons sélectionnée lors de la création de compte). On peut aussi voir que chaque module est accompagné de non seuelement sa note minimale pour l'acquérir, mais aussi un bouton "s'abonner" figurant encadré sur la capture ci-dessous.
 
 ![modules-abo-encadr](https://user-images.githubusercontent.com/114073517/208656286-831de73c-3c5f-4b68-b796-5929bd3faa52.png)
@@ -59,7 +65,6 @@ L'application nous présente alors une liste de modules (correspondant à la cla
 Lorsqu'un utilisateur s'abonne à un module, les matières et cours correspondants seront automatiquement ajoutés à son bulletin et emplois du temps. Lorsque la sélection de modules que l'on souhaite suivre est accomplie, on peut revenir sur la page d'avant, à savoir la liste de modules maintenant peuplée:
 
 ![modules](https://user-images.githubusercontent.com/114073517/208656349-29a2250f-91ed-4001-a7e5-1321a807da7e.png)
-
 
 #### Naviguer dans les modules
 
@@ -101,8 +106,8 @@ En voici une capture :
 
 Il faut savoir que dans chaque catégorie d'objets, on peut appliquer les opérations suivantes :
 
-- ajout
-- suppression
-- modification
+-   ajout
+-   suppression
+-   modification
 
 Ceci compte pour les modules, les cours et les leçons. Mais ces actions ne sont que visibles (et accessibles) si le compte connecté à l'application est un compte "Secrétaire" ou "Administrateur".
